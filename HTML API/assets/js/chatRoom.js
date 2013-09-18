@@ -28,7 +28,7 @@ $(function () {
 
 	// open connection
 	// var connection = new WebSocket('ws:localhost:1337');
-	var connection = new WebSocket('ws://127.0.0.1:1337');
+	var connection = new WebSocket('ws://10.203.60.83:1337');
 
 	// taking input from user via handling onopen() event handler
 	connection.onopen = function(){
@@ -45,6 +45,14 @@ $(function () {
 
 	// allowing the user to post messages, if everything is working properly, via the onmessage() event handler
 	connection.onmessage = function(message){
+		$('audio').attr('src', 'assets/audios/ping.mp3');
+		console.log('sound');
+		setTimeout(function(){
+		$('audio').removeAttr('src');
+
+		}, 10000);
+
+		input.removeAttr('disabled');
 
 		try{
 			var json = JSON.parse(message.data);
@@ -67,23 +75,63 @@ $(function () {
 			for (var i = 0; i < json.data.length; i++){
 				var author = json.data[i].author,
 				message = json.data[i].text,
-				color = json.data[i].myColor,
-				time = new Date(json.data[i].time());
+				color = json.data[i].color,
+				time = new Date(json.data[i].time);
 
 				addMessage(author, message, color, time);
 			}
 		}
 		else if (json.type === 'message'){
 			// for a single message returned
-			var author = json.data[i].author,
-			message = json.data[i].text,
-			color = json.data[i].myColor,
-			time = new Date(json.data[i].time());
+			var author = json.data.author,
+			message = json.data.text,
+			color = json.data.color,
+			time = new Date(json.data.time);
 			addMessage(author, message, color, time);
 		}
+		else{
+			alert('what sort of JSON file have you sent me??');
+		}
+
 	}
 
+	input.keydown(function(e){
+		if (e.keyCode === 13){
+
+			var msg = $(this).val();
+
+			if(!msg){
+				return;
+			}
+
+			connection.send(msg);
+			$(this).val('');
+
+			// disable the input field to make the user wait until the server sends back response
+			input.attr('disabled', 'disabled');
+
+			// checks if this is the first message sent by the user
+			if (myName === false){
+				myName = msg;
+			}
+
+		}
+	});
+
+	setInterval(function(){
+		if (connection.readyState !== 1){
+			status.text('Error');
+			input.attr('disabled', 'disabled').val('Unable to communicate with the WebSocket server!');
+		}
+	}, 5000);
+
 	function addMessage(author, message, color, dt){
+		// $('audio').attr('autoplay', 'play');
+		// $('audio').removeAttr('autoplay');
+		// $('audio').attr('src', 'assets/audios/ping2.mp3');
+		// $('audio').removeAttr('src');
+		// $('audio').attr('src', 'assets/audios/ping.mp3').delay(6000).removeAttr('src');
+
 		content.prepend('<p><span style="color:' + color + '">' + author + '</span> => ' + (dt.getHours() <10 ? '0' + dt.getHours(): dt.getHours()) + ':' + (dt.getMinutes() <10 ? '0' + dt.getMinutes(): dt.getMinutes()) + '=>' + message + '</p'
 			);
 	}
