@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Session Storage Demo</title>
+</head>
+<body>
+	<h1>session storage demo - header</h1>
+	<input type="button" value="Clicker" id="btn">
+	<span id="counterSpan">Clicks :</span>
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>	
+	<script type="text/javascript">
+	if(sessionStorage.hits){
+		sessionStorage.hits = Number(sessionStorage.hits) +1;
+
+	} else{
+		sessionStorage.hits = 1;
+	}
+	$('h1').text($('h1').text()+ ' ' + sessionStorage.hits);
+	console.log(sessionStorage.hits);
+	
+	// function clickCounterSessionStorage(){
+	// 	if(sessionStorage.clickCountCustom){
+	// 		sessionStorage.clickCountCustom = Number(sessionStorage.clickCountCustom) +1;
+
+	// 	} else{
+	// 		sessionStorage.clickCountCustom = 1;
+	// 	}
+	// 	$('#counterSpan').text($('#counterSpan').text()+ ' ' + sessionStorage.clickCountCustom);
+
+	// }
+	// $('#btn').on("click", clickCounterSessionStorage);
+	$('#btn').on("click", function(){
+		if(sessionStorage.clickCountCustom){
+			sessionStorage.clickCountCustom = Number(sessionStorage.clickCountCustom) +1;
+
+		} else{
+			sessionStorage.clickCountCustom = 1;
+		}
+		$('#counterSpan').text('Click :' + sessionStorage.clickCountCustom);
+		// console.log(sessionStorage.clickCountCustom);
+	});
+
+	</script>
+</body>
+</html>

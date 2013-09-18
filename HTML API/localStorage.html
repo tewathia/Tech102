@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Session Storage Demo</title>
+</head>
+<body>
+	<h1>session storage demo - header</h1>
+	<input type="button" value="Clicker" id="btn">
+	<span id="counterSpan">Clicks :</span>
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>	
+	<script type="text/javascript">
+	if(localStorage.hits){
+		localStorage.hits = Number(localStorage.hits) +1;
+
+	} else{
+		localStorage.hits = 1;
+	}
+	$('h1').text($('h1').text()+ ' ' + localStorage.hits);
+	console.log(localStorage.hits);
+	
+	$('#btn').on("click", function(){
+		if(localStorage.clickCountCustom){
+			localStorage.clickCountCustom = Number(localStorage.clickCountCustom) +1;
+
+		} else{
+			localStorage.clickCountCustom = 1;
+		}
+		$('#counterSpan').text('Click :' + localStorage.clickCountCustom);
+		console.log(localStorage.clickCountCustom);
+	});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shopping Cart: Store</title>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="../_scripts/respond.min.js"></script>
+<![endif]-->
+<link href="_css/main.css" rel="stylesheet" media="screen, projection">
+<link href="_css/range.css" rel="stylesheet" media="screen, projection">
+<meta name="viewport" content="initial-scale=1.0" />
+<script src="_scripts/jquery-1.8.2.min.js"></script>
+</head>
+<body id="blogPage">
+
+<div id="contentWrapper">
+  <article id="mainContent">
+    <h1>&nbsp;</h1>
+    <article class="post">
+      <h2><a href="#">Cool art. Hot prices.</a></h2></article>
+    <article id="gallery" class="post">
+      <div id="painting1" class="painting" draggable="true"><img src="_images/paintings/arrows.jpg" width="190" height="190" alt="Arrows">
+        <p>Arrows - <span class="price">$250</span></p>
+      </div>
+      <div id="painting2" class="painting" draggable="true"> <img src="_images/paintings/eye.jpg" width="190" height="190" alt="Eye">
+        <p>Eye - <span class="price">$400</span></p>
+      </div>
+      <div id="painting3" class="painting lastOne" draggable="true"> <img src="_images/paintings/graffiti.jpg" width="190" height="190" alt="Graffiti">
+        <p>Graffiti - <span class="price">$75</span></p>
+      </div>
+
+      <div id="painting4" class="painting" draggable="true"><img src="_images/paintings/orange-star.jpg" width="190" height="190" alt="Orange Star">
+        <p>Orange Star - <span class="price">$150</span></p>
+      </div>
+      <div id="painting5" class="painting" draggable="true"><img src="_images/paintings/patterns.jpg" width="190" height="190" alt="Patterns">
+        <p>Patterns - <span class="price">$200</span></p>
+      </div>
+      <div id="painting6" class="painting lastOne" draggable="true"> <img src="_images/paintings/rabbit.jpg" width="190" height="190" alt="Rabbigt">
+        <p>Rabbit - <span class="price">$350</span></p>
+      </div>
+    </article>
+  </article>
+  <aside>
+    <section class="info">
+      <div class="widget">
+        <h2>Price Slider</h2>
+        <form name="form1" method="post" action="">
+          <p>
+            <input id="slider" type="range" min="50" max="400" step="25" value="400" onchange="printValue('slider','rangeValue')" />
+	        <input id="rangeValue" type="text" size="2"/>
+          </p>
+        </form>
+      </div>
+      <div id="favorites" class="widget">
+        <h2>Favorites</h2>
+        <p>Drag Favorites Here</p>
+        <ul id="faves"></ul>
+      </div>
+    </section>
+  </aside>
+</div>
+<footer id="pageFooter" class="cf">
+  <nav class="footerNav"></nav>
+  <p>&copy;Copyright  </p>
+</footer>
+<script type="text/javascript" src="_scripts/jquery.ndd.js"></script>
+<script type="text/javascript" src="_scripts/dragdrop.js"></script>
+<script type="text/javascript">
+    function printValue (sliderID, textbox) {
+     // var x = $('#'+textbox),
+     //     y = $('#'+sliderID);
+     //     x.val(y.val())
+     var x = document.getElementById(textbox);
+     var y = document.getElementById(sliderID);
+     x.value = y.value;
+    }
+
+    window.onload = function(){
+     printValue('slider', 'rangeValue');
+    }
+    $("#painting1").data({id:1 , price:250});
+    $("#painting2").data({id:2 , price:400});
+    $("#painting3").data({id:3 , price:75});
+    $("#painting4").data({id:4 , price:150});
+    $("#painting5").data({id:5 , price:200});
+    $("#painting6").data({id:6 , price:350});
+
+
+     $(document).ready(function(){
+      var theValue;
+      $('#slider').change(function(){
+       theValue = $('#rangeValue').val();
+       filterItems(theValue);
+      });
+     });
+
+     function filterItems(priceCriteria){
+       $.each($('#gallery div'), function(i, item){
+        $item = $(item);
+        itemData = $item.data();
+
+        if(itemData.price <= priceCriteria){
+         $item.animate({opacity: 1});
+         itemData.matching = true;}
+         else{
+         $item.animate({opacity: 0.5});
+         itemData.matching = false;
+          
+         }
+        });
+       }
+      
+     
+
+</script>
+
+</body>
+</html>
