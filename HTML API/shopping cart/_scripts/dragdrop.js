@@ -14,7 +14,7 @@ $('#favorites').bind('dragover', function(evt){
 	$('#favorites').css('background-color','gray');
 	evt.preventDefault();
 }).bind('dragleave', function(evt){
-	$('#favorites').css('background-color','white');
+	$('#favorites').css('background-color','silver');
 	evt.preventDefault();
 }).bind('dragenter', function(evt){
 	$('#favorites').css('background-color','yellow');
