@@ -1,0 +1,68 @@
+// variable declaration
+
+$a : 2;
+$b : 3;
+$c : 5;
+
+
+
+// control directives
+
+
+// if condition directive
+.para-1{
+	// width: 200px;
+	@if $a<$b {
+		border:2px solid red;
+	}
+	@else {
+		border:2px solid green;
+	}
+
+	@if $a+$b==$c {
+		color: green;
+	}
+	@else{
+		color: red;
+	}
+}
+
+// for loop directive
+@for $i from 1 through 4{
+	.spanText-#{$i}{
+		width: 100px*$i;
+		background: blue;
+		display: block;
+		height: 200px/$i;
+	}
+}
+
+// each loop directive
+.socialIcons>li{
+	list-style: none;
+}
+@each $list in linkedin, rss, skype, twitter, youtube{
+	.#{$list}-icon{
+		height: 48px;
+		width: 48px;
+		float: left;
+		background: url(../images/#{$list}.png) no-repeat;
+
+		&:hover{
+		opacity: 0.5;
+		}
+
+	}
+
+}
+
+// while loop directive
+$typecount: 4;
+$type-width: 20px;
+@while $typecount>0{
+	.whileTest-#{$typecount}{
+		clear: both;
+		font-size: $type-width*$typecount;
+	}
+	$typecount: $typecount - 1;
+}

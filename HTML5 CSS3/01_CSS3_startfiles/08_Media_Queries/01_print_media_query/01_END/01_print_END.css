@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* CSS Document */
+
+h1
+{
+	
+	color:#000000;
+	/*text-decoration:underline;*/
+}
+
+p
+{
+	font-size:14px;
+}
+
+#imageDiv
+{ 	
+	width:200px;
+	height:200px;
+	background-image:url(01_back_blackwhite.jpg);
+	background-position:-50px -100px;
+	background-repeat:no-repeat;
+	border:solid 1px #000000;
+	
+}
+
+img
+{
+	/*display:none = hides object from screen, removes gaps */
+	display:none;
+	/*visibility:hidden = hides object, but keep space on screen*/
+	/*visibility:hidden;*/
+}
+
+ul
+{
+	list-style-type:none;
+}

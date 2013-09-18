@@ -1,0 +1,49 @@
+// variable declaration
+
+// para 1 variables
+$p1BG: red;
+$p1SpanBG: green;
+
+// para 2 variables
+$p2BG: yellow;
+$p2SpanBG: pink;
+$p2Width: 200px;
+$p2Margin: 0 auto;
+
+// para 3 variables
+$p3BG: silver;
+
+// div style
+div{
+	background: cyan;
+	.para-1{
+		background: $p1BG;
+		span{
+			background: $p1SpanBG;
+			a{
+				text-transform: lowercase;
+				&:hover{
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+	#para-2{
+		background: $p2BG;
+		width: $p2Width;
+		margin: $p2Margin;
+		height: 300px;
+		span{
+			background: $p2SpanBG;
+		}
+		&:hover{
+			width: $p2Width*2;
+		}
+	}
+	.para-3{
+		marquee{
+		background: $p3BG;
+		}
+	}
+
+}

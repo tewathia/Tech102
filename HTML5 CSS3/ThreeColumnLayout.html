@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3-Column Layout</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.mainSection{
+		width: 1003px;
+		height: 593px;
+		margin: 0 auto;
+		background: #FFCC00;
+	}
+	.headSection{
+		width: auto;
+		height: 100px;
+		background: #CC00CC;
+	}
+	.leftBox{
+		height: 400px;
+		width: 150px;
+		background: #9933CC;	
+		float: left;
+	}
+	.contentSection{
+		float: left;
+		width: 700px;
+		height: 400px;
+		background: white;
+		margin-left: 1.5px;
+	}
+	.rightBox{
+		height: 400px;
+		width: 150px;
+		float: right;
+		background: #9933CC;
+	}
+	.footSection{
+		height: 93px;
+		width: auto;
+		clear: both;
+		/*float: left;*/
+		background: black;
+	}
+
+	</style>
+</head>
+<body>
+	<!-- Main Section Starts Here -->
+	<section class="mainSection">
+
+	<!-- Header section starts -->
+		<header class="headSection"></header>
+	<!-- Header section ends -->
+
+	<!-- Left Box starts -->
+		<aside class="leftBox"></aside>
+	<!-- Left Box ends -->
+
+	<!-- Content Section starts -->
+		<article class="contentSection"></article>
+	<!-- Content Section ends -->
+
+	<!-- Right Box starts -->
+		<aside class="rightBox"></aside>
+	<!-- Right Box ends -->
+
+	<!-- Footer Section Starts -->
+		<footer class="footSection"></footer>
+	<!-- Footer Section ends -->
+	</section>
+	<!-- Main Section Ends Here -->
+</body>
+</html>

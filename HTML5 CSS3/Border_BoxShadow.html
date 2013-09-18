@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Border and Box Shadows</title>
+	<style>
+	.box, .box2{
+		width: 400px;
+		height: 400px;
+		margin: 0 auto;
+		border: 2px solid yellow;
+	}
+	.box{
+		-webkit-box-shadow: 10px 10px 105px green;
+		-moz-box-shadow: 10px 10px 105px green;
+		box-shadow: 10px 10px 105px green;
+		border-radius: 20px;
+		background: radial-gradient(black, yellow);
+	}
+	.box2{
+		-webkit-border-radius: 402px 0 402px 0;
+		-moz-border-radius: 402px 0 402px 0;
+		border-radius: 402px 0 402px 0; 	
+		background: linear-gradient(white, red);
+	}
+
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box2"></div>
+</body>
+</html>

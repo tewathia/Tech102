@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*@media screen and (min-width: 0px)  and (max-width: 601px){*/
+	#main{
+		width:50%;
+		height:150px;
+		margin:auto;
+		background-color:#0000FF;
+	}
+	
+	#main ul
+	{
+		margin:0px;
+		padding:0px;
+	}
+	
+	#main ul li
+	{
+		list-style-type:circle;
+		clear:both;	
+		}
+	
+/*}*/

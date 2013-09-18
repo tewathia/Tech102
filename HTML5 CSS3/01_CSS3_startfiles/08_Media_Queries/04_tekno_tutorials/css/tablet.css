@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+/*Explore California Tablet Styles*/
+body {
+	text-align:center;
+	font: 100% Georgia, "Times New Roman", Times, serif;
+	background: #e1d8b9 url(../images/page_background.jpg) repeat-x;
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(.25, rgb(238,205,82)), color-stop(0.65, rgb(226,217,185)));
+background:-moz-linear-gradient(center top, rgb(238,205,82) 25%, rgb(226,217,185) 65%);
+	margin-top: 25px;
+}
+
+.callOut {
+	background: #e1d8b9;
+	padding: 15px;
+	margin-bottom: 25px;
+	-webkit-box-shadow: 2px 2px 5px #000;
+	-moz-box-shadow: 2px 2px 5px #000;
+	box-shadow: 2px 2px 5px #000; 
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; 
+}
+.callOut h1 {
+	font-family: ChunkFiveRegular, Georgia, Times, serif;
+	font-weight: normal;
+	letter-spacing: 1px;
+	font-size: 1.4em;
+	color: #193742;
+	border-bottom: 2px solid #193742;
+	margin-bottom: .5em;
+	padding-bottom: .25em;
+}
+#wrapper {
+ 	position: relative;
+	padding: 0;
+	width: 700px;
+	margin: 0 auto;
+	background: #fff;
+	text-align: left;
+}
+
+/* ^5 --------------------- top-level region layout styles ------------------- */
+/* top-level regions are header, mainNav, mainContent, sidebar, & footer */
+
+/* header */
+#header {
+	width: 192px;
+	height: 237px;
+	position: absolute;
+	top: -25px;
+	left: 35px;
+}
+/* mainNav */
+#mainNav {
+	float: left;
+	width: 473px;
+	height: 40px;
+	margin-top: 50px;
+	margin-left: 227px;
+	background: #51341a;
+	margin-bottom: 150px;
+}
+/* mainContent */
+#mainContent {
+	padding-right: 25px;
+	float: none;
+	width: 650px;
+	margin: 400px 0 45px 25px;
+	clear: both;
+}
+/* sidebar */
+#sidebar {
+	float: left;
+	clear:left;
+	width: 700px;
+}
+/* footer */
+#footer {
+	width: 650px;
+	height: 210px;
+	clear: both;
+	/*background: url(../images/footer_back.gif) no-repeat;*/
+	background-color:#d73939;
+	padding: 45px 25px 30px;
+	margin-top: 45px;
+}
+/* base navigation */
+ul#baseNav {
+	float: left;
+	list-style: none;
+	margin:0;
+	padding:0;
+	margin-bottom: 0;
+	clear: left;
+}
+ul#baseNav li {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+ul#baseNav li a{
+	display: block;
+	width: 90px;
+	line-height: 40px;
+	color: #fff;
+	text-align: center;
+	text-indent: 0px;
+}
+#wrapper #mainNav ul#baseNav li a {
+	background: none;
+}
+
+ul#baseNav li a.current, ul#baseNav li a.current:hover {
+	border: none;
+	color: #952;
+	cursor: default;
+}
+
+ul#baseNav li a:hover {
+	border: none;
+	color: #cb7d20;
+}
+/*region detail styles */
+#mainContent h1#pageID {
+	display: none;
+}
+#mainContent div.tourDescription {
+	border-top: 2px solid #2c566a;
+	float:none;
+	clear: both;
+	padding: 10px 0;
+	margin-bottom: 15px;
+}
+#sidebar div {
+	width: 270px;
+	margin: 20px 25px 20px 25px;
+	-webkit-box-shadow: 2px 2px 5px #000;
+	-moz-box-shadow: 2px 2px 5px #000;
+	box-shadow: 2px 2px 5px #000; 
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; 
+	float:left;
+	clear: none;
+}
+#footer #footerMenu {
+	float: left;
+	width: 230px;
+}
+#footer #footerBody {
+	float: right;
+	width: 370px;
+}
+#footer #footerBody #footerMidCol {
+	position: absolute;
+	display: none;
+}
+#footer #footerBody #footerRightCol {
+	float: right;
+	width: 370px;
+}

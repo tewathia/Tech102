@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>01_background_multiple_images_START</title>
+
+<style type="text/css">
+
+body{
+	background-image: url('images/front.png'), url('images/back.jpg'), url('images/submit.gif') ;
+	/*background-repeat: repeat-x, no-repeat;*/
+	background-repeat: repeat-y, no-repeat, repeat-x;
+	background-position: left bottom, center center, top right;
+}
+
+#image_container
+{
+/*	position: relative;
+	top:100px;
+	left: 100px;
+*/	
+	margin: 0 auto;
+	width:1200px;
+	height:600px;
+	border:solid 1px #333333;
+	
+	/* Use muliple images seperated with comma */
+
+	background-image: url('images/front.png'), url('images/back.jpg'), url('images/submit.gif') ;
+	/*background-repeat: repeat-x, no-repeat;*/
+	background-repeat: repeat-y, no-repeat, repeat-x;
+	background-position: left bottom, center center, top right;
+
+	/*background: url('images/front.png') no-repeat, url('images/back.jpg') repeat-x ;*/
+
+	/*Absolute position / fixed position LEFT---TOP */
+
+	
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="image_container"></div>
+
+</body>
+
+</html>

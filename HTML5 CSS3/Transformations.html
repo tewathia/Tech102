@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 Transformations</title>
+	<style>
+
+	.box, .box2, .box3, .box4{
+		width: 400px;
+		height: 400px;
+		margin: 300px auto;
+		border: 2px solid blue;
+		background: radial-gradient(black, white);
+	}
+	.box{-webkit-transform:skew(20deg, 20deg);
+		-moz-transform:skew(20deg, 20deg);
+		-ms-transform:skew(20deg, 20deg);
+		-o-transform:skew(20deg, 20deg);
+		transform:skew(20deg, 20deg);
+	}
+	.box2{-webkit-transform: scale(1.5,0.5);
+		-moz-transform: scale(1.5,0.5);
+		-ms-transform: scale(1.5,0.5);
+		-o-transform: scale(1.5,0.5);
+		transform: scale(1.5,0.5);
+	}
+	.box3{
+		-webkit-transform: rotateX(180deg);
+		-moz-transform: rotateX(180deg);
+		-ms-transform: rotateX(180deg);
+		-o-transform: rotateX(180deg);
+		transform: rotateX(180deg);
+	}
+	.box4{
+		-webkit-transform: translate(500px, 20px);
+		-moz-transform: translate(500px, 20px);
+		-ms-transform: translate(500px, 20px);
+		-o-transform: translate(500px, 20px);
+		transform: translate(500px, 20px);
+	}
+	</style>
+</head>
+
+<body>
+	<div class="box">Skew</div>
+	<div class="box2">Scale</div>
+	<div class="box3">Rotate</div>
+	<div class="box4">Translate</div>
+</body>
+</html>

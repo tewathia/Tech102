@@ -1,0 +1,165 @@
+$blue:#66F;
+
+$defaultMargin:0 auto;
+
+$boxColor:white;
+
+$container:900px;
+
+$article:600px;
+
+// for float left
+$fltL:left;
+
+// for clear float value
+$fltC:both;
+
+// for default padding
+$defaultPadding:0px 20px 0px 0px;
+
+// default navigation style
+$navFontSize:15px;
+$navUlLiBG:cyan;
+
+// for container
+$divBoxSize: 160px;
+$divBorder: 2px solid blue;
+$divPadding: 20px;
+$divMargin: 120px 0 0 5px;
+
+
+// media query size for mobile layout
+$min:0px;
+$max:480px;
+
+@mixin gradientColor{
+	background: rgb(169,3,41); /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(169,3,41,1)), color-stop(44%,rgba(143,2,34,1)), color-stop(100%,rgba(109,0,25,1))); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* IE10+ */
+	background: radial-gradient(ellipse at center,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+@mixin rounded{
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	border-radius: 40px;
+	width: 200px;
+	width: 200px;	
+}
+
+@mixin shadow($shadowItem){
+	-webkit-#{$shadowItem}-shadow: 10px 10px 20px black;
+	-moz-#{$shadowItem}-shadow: 10px 10px 20px black;
+	#{$shadowItem}-shadow: 10px 10px 20px black;
+}
+
+html{
+	height: 100%;
+}
+
+body{
+	@include gradientColor;
+}
+
+#wrapper{
+	@include rounded;
+	@include shadow(box); 
+	margin: $defaultMargin;
+	background-color: $boxColor;
+	width: $container;
+	height: $container/2;
+}
+nav{
+	ul{
+		padding: $defaultPadding;
+		text-align: center;
+		list-style:none;
+		li{
+			@include shadow(text);
+			display: inline;
+			font-size: $navFontSize;
+			// width: 60px;
+
+			a{
+				padding: $defaultPadding;
+				text-decoration: none;
+				background-color: $navUlLiBG;
+				text-align: center;
+				&:hover{
+					// text-transform: uppercase;
+					font-weight: bold;
+					// font-weight: bolder;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+#container{
+	margin: $defaultMargin;
+	width: 880px;
+	padding: 10px 0;
+
+	div{
+		@include rounded;
+		height: $divBoxSize;
+		border: $divBorder;
+		padding: $divPadding;
+		float: $fltL;
+		margin: $divMargin;	
+	}
+
+	.box-1{
+		background-color: red;
+		width: $divBoxSize - 50px;
+	}
+	.box-2{
+		width: $divBoxSize + 350px;
+		background-color: blue;
+	}
+	.box-3{
+		width: $divBoxSize - 50px;
+		background-color: green;
+	}
+}
+.footerSection{
+	clear:$fltC;
+	margin: $defaultMargin;
+	width: 160px;
+	height: auto;
+	padding-top: 18px;
+}
+
+@media all and (min-width: $min) and (max-width: $max) {
+	#wrapper{
+		width: $container - 500px;		
+		padding: 0;
+		height: auto;
+	}
+	nav{
+		width: 300px;
+		margin: $defaultMargin;
+	}
+	#container{
+		height: auto;
+		// border: $divBorder;
+		padding: 0;
+		width: 396px;
+		margin: 0;
+		div{
+			clear: $fltC;
+			margin: 0px;
+		// width: auto;
+		// display: none;
+	}
+	.box-1, .box-2, .box-3{
+		width: 396px - $divPadding*2;
+	}
+}
+
+}

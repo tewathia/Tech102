@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Transitions</title>
+	<style>
+	div{
+		width: 200px;
+		height: 200px;
+		background: blue;
+		border:1px solid red;
+		margin: 100px auto;
+		display: none;
+		transition-property: all;
+		transition-duration: 0.5s;
+		transition-timing-function: linear;
+		transition-delay: 0.1s;
+	}
+	.box-1{
+		display: block;
+	}
+	.box-1:hover{
+		/*transition-property:transform:rotate;*/
+		background: black;
+		border-radius: 100px;
+		-webkit-transform:rotate(1080deg);
+		transition-property: all;
+		transition-duration: 0.5s;
+		transition-timing-function: linear;
+		transition-delay: 1s;
+	}
+	</style>
+</head>
+<body>
+	<div class="box-1"></div>
+	<div class="box-2"></div>
+	<div class="box-3"></div>
+	<div class="box-4"></div>
+</body>
+</html>

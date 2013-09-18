@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*@media screen and (min-width: 1025px) */
+	#main{
+		width:50%;
+		height:100px;
+		margin:auto;
+		background-color:#FF0000;
+		display:table-cell;
+		vertical-align:middle;
+	}
+	
+	#main ul
+	{
+		margin:0px;
+		padding:0px;
+	}
+	
+	#main ul li
+	{
+		list-style-type:none;
+		float:left;
+		display:block;
+		width:100px;
+	}
+	
+/*}*/

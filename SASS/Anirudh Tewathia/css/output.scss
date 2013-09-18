@@ -1,0 +1,165 @@
+// variable declaration
+$marginDefault : 0 auto;
+// $headingColor : #CB625F;
+$headingColor : #D06060;
+
+$headingWidth : 600px;
+$headingFont : 50px 'Kavoon', cursive;
+// $navColor : #D6606E;
+$navColor : #D06060;
+$navWidth : 22px;
+
+$smallFont : 12px 'Inika', serif;
+
+$bannerBorder : 1px solid #B57177;
+// $contestBG : #F3D6D8;
+$contestBG : #f3d6d6;
+$box1BG : #752222;
+$box2BG : #c33a3a;
+$box3BG : #9c2e2e;
+
+$testBorder : 1px dotted black;
+
+// mixin declaration
+@mixin resetStyle{
+	padding: 0;
+	margin: 0;
+}
+
+@mixin centerAlignText{
+	text-align: center;
+}
+
+@mixin roundedSmall{
+	-webkit-border-radius: 0 20px 0 20px;
+	-moz-border-radius: 0 20px 0 20px;
+	border-radius: 0 20px 0 20px;
+}
+
+@mixin roundedBig{
+	-webkit-border-radius: 0 10px 0 10px;
+	-moz-border-radius: 0 10px 0 10px;
+	border-radius: 0 10px 0 10px;
+	
+}
+
+@mixin navFontStyle{
+	font-size: 20px;
+	font-weight: bold;
+
+}
+
+@mixin boxStyle{
+	@include roundedSmall;
+	h3{
+		width: 30px;
+		font: 20px;
+		ul{
+			li{
+				list-style: none;
+				font: white 18px;
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+
+// css styling
+
+
+body{
+	@include resetStyle;
+}
+
+
+#wrapper{
+	width: 1000px;
+	margin: $marginDefault;
+
+	#header{
+
+		#logo{
+
+			.heading{
+				color: $headingColor;
+				margin: $marginDefault;
+				width: $headingWidth;
+				// border: $testBorder;
+				font: $headingFont;
+				@include centerAlignText;
+			}
+
+			span{
+				font: 14px serif;
+				// font-weight: bold;
+				font-style: italic;
+				// border: $testBorder;
+				margin: $marginDefault;
+				@include centerAlignText;
+				display: block;
+			}
+		}
+	}
+	nav{
+		ul{
+			list-style: none;
+			margin-left: 220px;
+			li{
+				display: inline;
+				width: $navWidth;
+				a{
+					color: $navColor;
+					@include centerAlignText;
+					@include navFontStyle;
+					text-decoration: none;
+					// border: $testBorder;
+					margin-left: 20px;
+
+				}
+			}
+		}
+	}
+	// #banner{
+	// 	img{
+
+	// 	}
+	// }
+	#container{
+		h1{
+			color: 	$navColor;
+			font-style: italic;
+		}
+		p{
+			width: auto;
+		}
+	}	
+	aside{
+		@include roundedBig;
+		float: left;
+		h2{
+			font: 40px 'Kavoon';
+		}
+		p{
+			width: auto;
+		}
+	}
+	article{
+		float: left;			
+		p{
+			width: auto;
+		}
+		.box_one{
+			@include boxStyle;
+			width: 150px;
+		}
+		.box_two{
+			@include boxStyle;
+			width: 300px;
+		}
+		.box_three{
+			@include boxStyle;
+			width: 150px;
+		}
+	}
+}

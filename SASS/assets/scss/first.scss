@@ -1,0 +1,8 @@
+$myColor: #FFFF00;
+
+h1{
+	color: $myColor;
+}
+p{
+	color: $myColor+#0000FF;
+}

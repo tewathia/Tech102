@@ -1,0 +1,86 @@
+.para-1 {
+  border: 2px solid red;
+  color: green; }
+
+.spanText-1 {
+  width: 100px;
+  background: blue;
+  display: block;
+  height: 200px; }
+
+.spanText-2 {
+  width: 200px;
+  background: blue;
+  display: block;
+  height: 100px; }
+
+.spanText-3 {
+  width: 300px;
+  background: blue;
+  display: block;
+  height: 66.66667px; }
+
+.spanText-4 {
+  width: 400px;
+  background: blue;
+  display: block;
+  height: 50px; }
+
+.socialIcons > li {
+  list-style: none; }
+
+.linkedin-icon {
+  height: 48px;
+  width: 48px;
+  float: left;
+  background: url(../images/linkedin.png) no-repeat; }
+  .linkedin-icon:hover {
+    opacity: 0.5; }
+
+.rss-icon {
+  height: 48px;
+  width: 48px;
+  float: left;
+  background: url(../images/rss.png) no-repeat; }
+  .rss-icon:hover {
+    opacity: 0.5; }
+
+.skype-icon {
+  height: 48px;
+  width: 48px;
+  float: left;
+  background: url(../images/skype.png) no-repeat; }
+  .skype-icon:hover {
+    opacity: 0.5; }
+
+.twitter-icon {
+  height: 48px;
+  width: 48px;
+  float: left;
+  background: url(../images/twitter.png) no-repeat; }
+  .twitter-icon:hover {
+    opacity: 0.5; }
+
+.youtube-icon {
+  height: 48px;
+  width: 48px;
+  float: left;
+  background: url(../images/youtube.png) no-repeat; }
+  .youtube-icon:hover {
+    opacity: 0.5; }
+
+.whileTest-4 {
+  clear: both;
+  font-size: 80px; }
+
+.whileTest-3 {
+  clear: both;
+  font-size: 60px; }
+
+.whileTest-2 {
+  clear: both;
+  font-size: 40px; }
+
+.whileTest-1 {
+  clear: both;
+  font-size: 20px; }

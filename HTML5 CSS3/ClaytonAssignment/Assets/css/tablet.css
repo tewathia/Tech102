@@ -1,0 +1,45 @@
+#container{
+	width:600px;
+}
+#header{
+	position:static;
+	background:0 none;
+}
+.logo{
+	position: static;
+	margin: 0 auto;
+	width: 257px;
+}
+nav{
+	top: 130px;
+	right: 7%;
+}	
+#banner{
+	display: none;
+}
+#content{
+	background: white;
+	margin: 0 auto;
+	position: relative;
+	top: 97px;
+	width: 600px;
+}
+#ltsnewsbox{
+	float: none;
+	width: 561px;
+}
+#bottomcontent{
+	float: none;
+	margin: auto;
+	position: relative;
+	top: 105px;
+	width: 464px;
+}
+.box{
+	margin: 10px;
+	padding: 10px;
+}
+footer{
+	position: relative;
+	top: 82px;
+}

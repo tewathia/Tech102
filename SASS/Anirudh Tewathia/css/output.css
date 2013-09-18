@@ -1,0 +1,86 @@
+body {
+  padding: 0;
+  margin: 0; }
+
+#wrapper {
+  width: 1000px;
+  margin: 0 auto; }
+  #wrapper #header #logo .heading {
+    color: #d06060;
+    margin: 0 auto;
+    width: 600px;
+    font: 50px "Kavoon", cursive;
+    text-align: center; }
+  #wrapper #header #logo span {
+    font: 14px serif;
+    font-style: italic;
+    margin: 0 auto;
+    text-align: center;
+    display: block; }
+  #wrapper nav ul {
+    list-style: none;
+    margin-left: 220px; }
+    #wrapper nav ul li {
+      display: inline;
+      width: 22px; }
+      #wrapper nav ul li a {
+        color: #d06060;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        margin-left: 20px; }
+  #wrapper #container h1 {
+    color: #d06060;
+    font-style: italic; }
+  #wrapper #container p {
+    width: auto; }
+  #wrapper aside {
+    -webkit-border-radius: 0 10px 0 10px;
+    -moz-border-radius: 0 10px 0 10px;
+    border-radius: 0 10px 0 10px;
+    float: left; }
+    #wrapper aside h2 {
+      font: 40px 'Kavoon'; }
+    #wrapper aside p {
+      width: auto; }
+  #wrapper article {
+    float: left; }
+    #wrapper article p {
+      width: auto; }
+    #wrapper article .box_one {
+      -webkit-border-radius: 0 20px 0 20px;
+      -moz-border-radius: 0 20px 0 20px;
+      border-radius: 0 20px 0 20px;
+      width: 150px; }
+      #wrapper article .box_one h3 {
+        width: 30px;
+        font: 20px; }
+        #wrapper article .box_one h3 ul li {
+          list-style: none;
+          font: white 18px;
+          margin-left: 10px; }
+    #wrapper article .box_two {
+      -webkit-border-radius: 0 20px 0 20px;
+      -moz-border-radius: 0 20px 0 20px;
+      border-radius: 0 20px 0 20px;
+      width: 300px; }
+      #wrapper article .box_two h3 {
+        width: 30px;
+        font: 20px; }
+        #wrapper article .box_two h3 ul li {
+          list-style: none;
+          font: white 18px;
+          margin-left: 10px; }
+    #wrapper article .box_three {
+      -webkit-border-radius: 0 20px 0 20px;
+      -moz-border-radius: 0 20px 0 20px;
+      border-radius: 0 20px 0 20px;
+      width: 150px; }
+      #wrapper article .box_three h3 {
+        width: 30px;
+        font: 20px; }
+        #wrapper article .box_three h3 ul li {
+          list-style: none;
+          font: white 18px;
+          margin-left: 10px; }

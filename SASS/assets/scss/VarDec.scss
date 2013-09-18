@@ -1,0 +1,150 @@
+// Define different types of variables to store value and reuse it
+
+// To declare a variable in scss we can start with $ sign 
+
+// Different types in sass
+
+// color type
+$myColor: #0000FF;
+
+// number type
+$mySize: 200px;
+
+// string type
+$myName: "SASS script";
+
+// boolean type
+$myStatus: true;
+
+// null type
+$myVar: null;
+
+// list type
+$myMargin: 10px 20px 10px 20px;
+$myBorder: 1px solid black;
+
+// variable declaration
+
+// header styling variables
+$headingColor: rgba(255,0,125,0.3);
+$headerFontSize:45px;
+$headerBackgroundColor:silver;
+$headerPadding: 10px 20px 30px 40px;
+
+// paragraph styling variables
+$paraColor: #FF0000;
+$paraFontSize:8px;
+$paraBackgroundColor:$headerBackgroundColor/3;
+
+// error div styling variables
+$errorBorder:5px dashed red;
+
+// Interpolation
+
+$radius:30px;
+$property: border;
+$margin: margin;
+$bg: background;
+
+h1{
+	color: $myColor;
+	font-size: $headerFontSize+11px;
+	background: $headerBackgroundColor;
+	padding: $headerPadding;
+}
+p{
+	color: $paraColor;
+	font-size: $paraFontSize*2.2;
+	#{$bg}: $paraBackgroundColor;
+}
+p:after{
+	content: " || " + $myName;
+}
+.error{
+	border: $errorBorder;
+	font-size: 20px;
+}
+.small-error, .solution{
+	@extend .error;
+	background:green;
+}
+
+// NAVIGATION style
+
+#navBar{
+	width:400px;
+	height: auto;
+	#{$bg}: $headerBackgroundColor;
+
+	ul{
+		padding: 1px 0 1px 0;
+		text-align: center;
+
+		li{
+			margin-bottom: 1px;
+			border-bottom: 1px solid yellow;
+			
+			a{
+				color:white;
+				text-decoration: none;
+
+				&:hover{
+					color: #000;
+					text-transform:uppercase;
+				}
+
+			}
+			&:hover{
+				background: $headerBackgroundColor/2;
+			}
+		}
+	}
+}
+
+// import another file
+@import "commonStyle";
+
+// Apply Mixins
+
+@mixin testFun($myWidth:200px, $myHeight:200px, $myBG:lime){
+	width: $myWidth;
+	height: $myHeight;
+	background: $myBG;
+}
+
+@mixin myRad{
+	border-radius: 100px;
+}
+
+// call(OR include) the mixins
+.box-1{
+	@include testFun;
+	@include myGradient;
+	background: blue; 
+}
+.box-2{
+	@include testFun(300px, 100px, pink);
+}
+.box-3{
+	@include testFun;
+	@include myRad;
+	
+	@include myGradient;
+}
+
+div{
+		margin: 10px;
+}
+
+// debugging
+
+// @debug 
+
+
+h1{
+	@debug "Main color is:"  $paraColor;
+
+}
+p{
+	@warn "Apply para color instead of heading color. The color is:"  $headingColor;
+}

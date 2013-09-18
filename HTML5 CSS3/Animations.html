@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animations using CSS-3</title>
+	<style>
+	div{
+		width: 40px;
+		height: 40px;
+		display: none;
+		border: 1px solid yellow;
+		background: black;
+	}
+	.box-1{
+		display: block;
+		-webkit-animation-name:myAnim;
+		-webkit-animation-duration:4s;
+		-webkit-animation-direction:alternate;
+		-webkit-animation-timing-function:linear;
+		-webkit-animation-iteration-count:1;
+		-webkit-animation-fill-mode:forwards;
+		-webkit-animation-delay:3s;
+		-moz-animation-name:myAnim;
+		-moz-animation-duration:4s;
+		-moz-animation-direction:alternate;
+		-moz-animation-timing-function:linear;
+		-moz-animation-iteration-count:1;
+		-moz-animation-fill-mode:forwards;
+		-moz-animation-delay:3s;
+		position: absolute;
+		top: 500px;
+		left:680px;
+	}
+	.box-2{
+		display: block;
+		-webkit-animation-name:myAnim2;
+		-webkit-animation-duration:3s;
+		-webkit-animation-direction:alternate;
+		-webkit-animation-timing-function:linear;
+		-webkit-animation-iteration-count:1;
+		-webkit-animation-fill-mode:forwards;
+		-moz-animation-name:myAnim2;
+		-moz-animation-duration:3s;
+		-moz-animation-direction:alternate;
+		-moz-animation-timing-function:linear;
+		-moz-animation-iteration-count:1;
+		-moz-animation-fill-mode:forwards;
+		position: absolute;
+		top: 200px;
+		left: 200px;
+		border-radius: 20px;
+
+	}
+	@-webkit-keyframes myAnim{
+		/*from{width: 20px;
+			height: 20px;
+			border-radius: 0px; }
+		to{width: 400px;
+			height: 400px;
+			border-radius: 200px;}*/
+		0%{
+			left: 680px;
+		}
+		50%{
+			left: 980px;
+			top:500px;
+			-webkit-transform:rotate(0deg);
+		}
+		81%{
+			left: 990px;
+			top:520px;
+			-webkit-transform:rotate(90deg);
+		}
+		99%{
+			left: 980px;
+			top: 768px;
+			-webkit-transform:rotate(90deg);
+			width: 40px;
+			height: 40px;
+			-webkit-transform:rotate(90deg);
+		}
+		100%{
+			left: 1020px;
+			top: 808px;
+			-webkit-transform:rotate(90deg);
+			/*display: none;*/
+			width: 0px;
+			height: 0px;
+		}
+
+	}
+	@-webkit-keyframes myAnim2{
+		0%{
+			border-radius: 0px;
+			top: 400px;
+			left: 400px;
+			/*-webkit-transform:rotate(0deg);			*/
+		}
+		30%{
+			border-radius: 20px;
+			top: 500px;
+			left: 500px;
+			/*-webkit-transform:rotate(108deg);*/
+		}
+		45%{
+			border-radius: 0px;
+			top: 450px;
+			left: 550px;
+			/*-webkit-transform:rotate(216deg);*/
+		}
+		65%{
+			border-radius: 20px;
+			top: 500px;
+			left: 600px;
+			/*-webkit-transform:rotate(324deg);*/
+		}
+		80%{
+			border-radius: 0px;
+			top: 480px;
+			left: 620px;
+			/*-webkit-transform:rotate(432deg);*/
+		}
+		100%{
+			border-radius: 20px;
+			top: 500px;
+			left: 640px;
+			/*-webkit-transform:rotate(540deg);*/
+		}
+		
+
+	}
+	.line{
+		width: 980px;
+		position: absolute;
+		top:540px;
+		display: block;
+		height: 1px;
+	}
+	</style>
+</head>
+<body>
+	<div class="box-1"></div>
+	<div class="box-2"></div>
+	<div class="line"></div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Fonts Embedding START</title>
+	<style type="text/css">
+    
+	/* embed the fonts with @font-face */
+
+
+
+
+
+
+
+    
+	/* apply the embedded font to any element */
+
+
+
+
+    
+	/* apply the embedded font to any element */
+
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <h3>1. The @font-face rule allows for linking to fonts that are automatically activated when needed. 
+    <br/>2. Multiple @font-face rules can be used to construct font families with a variety of faces. 
+    <br/>3. Firefox, Chrome, Safari, and Opera support fonts of type .ttf (True Type Fonts) and .otf (OpenType Fonts).
+    <br/>4. Internet Explorer 9+ supports the new @font-face rule, but it only supports fonts of type .eot (Embedded OpenType).
+    </h3>
+
+    <p>@font-face <br/>
+      {<br/>
+      font-family: '';<br/>
+      src: url('.eot?') format('eot'),<br/>
+      url('.woff') format('woff'),<br/>
+      url('.ttf') format('truetype');<br/>
+    }
+    </p>
+    
+    <table id="fontformats">
+      
+      <thead>
+        <tr>
+          <th>String</th>
+          <th>Font Format</th>
+          <th>Common extensions</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr>
+          <th>"woff"</th>
+          <td>WOFF (Web Open Font Format)</td>
+          <td>.woff</td>
+        </tr>
+        
+        <tr>
+          <th>"truetype"</th>
+          <td>TrueType</td>
+          <td>.ttf</td>
+        </tr>
+        
+        <tr>
+          <th>"opentype"</th>
+          <td>OpenType</td>
+          <td>.ttf, .otf</td>
+        </tr>
+        
+        <tr>
+          <th>"embedded-opentype"</th>
+          <td>Embedded OpenType</td>
+          <td>.eot</td>
+        </tr>
+        
+        <tr>
+          <th>"svg"</th>
+          <td>SVG Font</td>
+          <td>.svg, .svgz</td>
+        </tr>
+        
+      </tbody>
+      
+    </table>
+    <p>
+    <br/>
+      
+    </p>
+
+    <h1>This Headings Font is Embedded.</h1>
+    
+    <p>This is normal non-embedded text/font.
+
+        <ul>
+        
+            <li>EOT		=</li> Embedded OpenType. Embedded OpenType (EOT) fonts are a compact form of OpenType fonts designed by Microsoft for use as embedded fonts on web pages.
+            
+            <li>WOFF	=</li> Web Open Font Format. The Web Open Font Format (WOFF) is a font format for use in web pages.It was developed during 2009.
+            
+            <li>TTF		=</li> True Type Font. TrueType is an outline font standard originally developed by Apple Computer in the late 1980s as a competitor to Adobe's Type 1 fonts used in PostScript.
+            
+            <li>SVG		= Scalable Vector Graphics. XML-based file format for two-dimensional vector graphics, both static and dynamic.</li>
+            
+            <li>OTF		= Open TYPE Font Format</li>
+            
+            <li>WTTF	= Windows True Type Font.</li>
+
+        </ul>
+    </p>
+
+
+
+
+</body>
+</html>

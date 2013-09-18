@@ -1,0 +1,21 @@
+div {
+  background: cyan; }
+  div .para-1 {
+    background: red; }
+    div .para-1 span {
+      background: green; }
+      div .para-1 span a {
+        text-transform: lowercase; }
+        div .para-1 span a:hover {
+          text-transform: uppercase; }
+  div #para-2 {
+    background: yellow;
+    width: 200px;
+    margin: 0 auto;
+    height: 300px; }
+    div #para-2 span {
+      background: pink; }
+    div #para-2:hover {
+      width: 400px; }
+  div .para-3 marquee {
+    background: silver; }
