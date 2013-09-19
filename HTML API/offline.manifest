@@ -1,0 +1,14 @@
+CACHE MANIFEST
+
+
+CACHE:
+assets/images/Desert.jpg
+offlineCache.html
+assets/css/style.css
+
+NETWORK:
+
+
+
+FALLBACK:
+assets/images/Desert.jpg
