@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Worker Detection</title>
+	<script type="text/javascript" src="assets/js/modernizr.js"></script>
+</head>
+<body>
+	<h1>Checking Web Worker Support</h1>
+
+
+
+	<script>
+	// console.log('audio support is '+ modernizr.audio)
+	function checkWorkerSupport () {
+		try{
+			if( !! window.Worker) return window.Worker;
+			else return undefined;
+		}	
+		catch(e){
+			return undefined;
+		}
+	}
+
+	var myWorker = null;
+	if(!(myWorker = checkWorkerSupport())){
+		alert('Worker Not Supported');
+	}
+	else{
+		alert('Worker Supported');
+	}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+var _output = $('#output');
+
+function WorkerMessage(cmd, param){
+	this.cmd = cmd;
+	this.param = param;
+
+}
+
+if(Modernizr.webworkers){
+	var _btnSubmit = $('#showMessage'),
+		_inputForWorker = $('#inputForWorker'),
+		_killWorker = $('#stopWorker');
+
+	var myWorkerObject = new Worker('assets/js/helloWorkerJSON.js');
+
+	myWorkerObject.postMessage(new WorkerMessage('init', null));
+
+	_btnSubmit.on("click", onShowMessage);
+	_killWorker.on("click", onKillMessage);
+
+	myWorkerObject.onmessage = function (event) {
+		_output.text(event.data);
+	}
+
+	function onShowMessage(){
+		myWorkerObject.postMessage(new WorkerMessage('hello', _inputForWorker.val()));
+	}
+
+	function onKillMessage(){
+		myWorkerObject.terminate();
+		_output.text('Worker has been stopped!');
+	}
+
+
+}
+else{
+	_output.text('web workers not supported!');
+}

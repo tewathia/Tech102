@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Watch Position - Geolocation</title>
+ <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+ <style>
+
+ div{
+   width: 450px;
+   height: 450px;
+   border: 1px dotted silver;
+  }
+  </style>
+</head>
+<body>
+ <div id="mapDiv"></div>
+ <button id="startWatch">Start your watch!</button>
+ <button id="stopWatch">Stop Watching Me!</button>
+ <span>status</span>
+
+
+ 
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script> 
+ <script>
+ 'use strict'
+ var watchId = null,
+ x = $('span');
+ function geoLoc() {
+  if(navigator.geolocation){
+   var watchArgs = {
+    enableHighAccuracy: true, timeout: Infinity, maximumAge:0
+   };
+   // getCurrentPosition accepts two parameters 1.on success(allowed) 2.on error(denied)
+   watchId = navigator.geolocation.watchPosition(showPosition, showError, watchArgs);
+  }
+  else{
+   // console.log('no support');
+   x.text('geolocation not supported ');
+  }
+ }
+
+ function showPosition(posArg){
+  var googlePos = new google.maps.LatLng(posArg.coords.latitude, posArg.coords.longitude);
+  console.log(googlePos);
+
+  var mapOptions = {
+   zoom: 12,
+   center: googlePos,
+   mapTypeId: google.maps.MapTypeId.ROADMAP};
+   console.log(1);
+
+   var mapObj = $('#mapDiv');
+   console.log(2);
+
+
+   // culprit!!
+   var googleMap = new google.maps.Map(mapObj[0], mapOptions);
+   console.log(3);
+
+   var markerOpt = {map: googleMap,
+    position: googlePos,
+    title: "You are here!",
+    animation: google.maps.Animation.DROP};
+    console.log(4);
+
+    var googleMarker = new google.maps.Marker(markerOpt);
+    console.log(5);
+
+    var geocoder = new google.maps.Geocoder();
+    console.log(6);
+
+    geocoder.geocode({
+
+     'latLng' : googlePos
+    }, function(results, status) {
+     if (status == google.maps.GeocoderStatus.OK) {
+      if (results[1]) {
+       console.log(results);
+       console.log(results[1]);
+
+       var popOpts = {
+        content : results[1].formatted_address,
+        position : googlePos
+       };
+       var popup = new google.maps.InfoWindow(popOpts);
+       google.maps.event.addListener(googleMarker, 'click', function() {
+        popup.open(googleMap);
+       });
+      } else {
+       alert('No results found');
+      }
+     } else {
+      alert('Geocoder failed due to: ' + status);
+     }
+    });
+
+
+    console.log(7);
+   }
+
+   console.log(8);
+
+   function showError(error){
+    console.log(9);
+
+    switch(error){
+     case error.PERMISSION_DENIED:
+     x.text('User denied your request for location.');
+     break;
+     case error.POSITION_UNAVAILABLE:
+     x.text('User position unavailable.');
+     break;
+     case error.TIMEOUT:
+     x.text('Location request has timed out.');
+     break;
+     case error.UNKNOWN_ERROR:
+     x.text('unknown error!.');
+     break; 
+    }
+   } 
+   console.log(10);
+
+   $('button#stopWatch').on("click", stopWatch);
+
+   $('button#startWatch').on("click", geoLoc);
+
+   function stopWatch(){
+     if (watchId){
+      navigator.geolocation.clearWatch(watchId);
+     }
+   }
+   </script>
+
+  </body>
+  </html>

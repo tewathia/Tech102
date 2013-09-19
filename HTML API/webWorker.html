@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Web Worker Demo</title>
+</head>
+<body>
+	<button>call the big loop</button>
+	<input type="number" name="" id="num">
+	<div id="text"></div>
+
+
+	<script src="assets/js/jquery.js" ></script>
+	<script type="text/javascript">
+			var n = $('#num').val();
+	$('button').on("click", bigLoop);
+	function bigLoop () {
+
+		if(typeof(Worker)!=="undefined"){
+			var myWorker = new Worker ("assets/js/bigLoop.js")
+			myWorker.onmessage = function(event){
+				// alert("Completed " + event.data + " Iteration");
+				$('#text').html(event.data);
+				// alert(event.data+'work');
+
+
+			}
+			myWorker.onerror = function(event){
+				$('#text').html('Worker has some error!');
+
+			}
+
+
+
+
+
+		}
+		else{
+
+		}
+		
+	}
+	</script>
+</body>
+</html>

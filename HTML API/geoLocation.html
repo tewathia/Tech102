@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Geolocation demo</title>
+</head>
+<body>
+
+<h2>Your location is : </h2>
+<button id="getLoc">Get Location</button>
+<div id="gMapHolder"></div>
+
+<!-- <script src="assets/js/jquery.js" ></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>	
+
+<script type="text/javascript">
+
+var x = $('h2');
+
+function getMyLocation () {
+	if(navigator.geolocation){
+			// getCurrentPosition accepts two parameters 1.on success(allowed) 2.on error(denied)
+			navigator.geolocation.getCurrentPosition(showPosition, showError);
+		}
+		else{
+			// console.log('no support');
+			x.text('geolocation not supported ');
+		}
+	}
+
+	function showPosition(position){
+		var latlon = position.coords.latitude+','+position.coords.longitude;
+		var img_url = "http://maps.googleapis.com/maps/api/streetview?center="+latlon+"&zoom=14&size=400x300&sensor=false";
+		var link_url = "https://maps.google.co.in/maps?f=q&source=s_q&output=js&hl=en&geocode=&abauth=523abc17L44VGQ_BwwAM2FU582ffDlifMog&authuser=0&q="+latlon+"&aq=";
+		$('<a>').attr('href',link_url).html('go to google').appendTo($('#gMapHolder'));
+		$('<img>').attr('src',img_url).appendTo($('#gMapHolder'));
+		x.text(x.text()+latlon);
+
+	}
+	function showError(error){
+		switch(error){
+			case error.PERMISSION_DENIED:
+				x.text('User denied your request for location.');
+				break;
+			case error.POSITION_UNAVAILABLE:
+				x.text('User position unavailable.');
+				break;
+			case error.TIMEOUT:
+				x.text('Location request has timed out.');
+				break;
+			case error.UNKNOWN_ERROR:
+				x.text('unknown error!.');
+				break;	
+		}
+		alert('user has denied permission');
+	}
+	$('#getLoc').on("click", getMyLocation);
+
+
+
+
+</script>	
+</body>
+</html>
