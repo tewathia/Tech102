@@ -1,0 +1,267 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+@import "css3"; // to import another scss file
+
+//variables
+$width:980px;
+$mar:50px auto 50px auto;
+$white:#fff;
+$measure:10px auto;
+$aside:272px;
+$content:$width - $aside - 30px;
+$border:1px solid #000;
+$mes:20px 0 0 0;
+$black:#333;
+$blue:#193742;
+$size:30px;
+$space: 20px 20px 10px 20px;
+$bottom:2px dotted #333;
+$bt:15px 0;
+
+body{
+	@include gradient;
+}
+
+#wrapper{
+	width:$width - 20px; //operations and functions
+	margin:$mar;
+	background:$white;
+	@include rounded; //use of mixins
+	@include shadow;
+	padding:0 20px;
+	position:relative;
+}
+
+aside{
+	width:$aside;
+	float:left;
+}
+
+.logo img {
+    left: 56px;
+    padding: 20px 0 0;
+    position: absolute;
+    top: -58px;
+}
+article{
+	width:$content - 20px;
+	float:left;
+	padding:0 0 0 20px;
+}
+
+#specials{
+	@include side;
+	@include rounded;
+	padding:$space;
+	
+}
+//nested
+nav {
+	width:272px;
+	margin:218px 0 0 0;
+
+	ul {
+		list-style:none;
+
+		li {
+			margin:10px;
+
+			a {
+				color:$black;
+				border-bottom:$bottom;
+				text-decoration:none;
+				display:block;
+				font-size:$size;
+				padding:0 0 10px 0;
+			}
+		}
+	}
+}
+
+
+
+#specials{
+	img
+	{ 
+		float:left;
+		padding-bottom:10px;
+	}
+	p
+	{
+		font-size: 16px;
+		font-style: italic;
+		line-height: 16px;
+		text-align: right;
+	}
+	h1{
+		color:$blue;
+		font-size:$size - 2px; //subtraction
+		border-bottom:$bottom;
+		padding:0 0 10px 0;
+		margin:0 0 20px 0;
+		
+	}
+	h2{
+		 clear:both;
+		 text-align:right;
+		 color:$blue;
+		 font-weight:bold;
+	}
+}
+
+.clear{
+	clear:both;
+}
+
+#trivia{
+	@include side;
+	@include rounded;
+	padding:$space;
+	margin:$bt;
+}
+
+#trivia h1{
+	color:$blue;
+	font-size:$size - 2px; //subtraction
+	border-bottom:$bottom;
+	padding:0 0 10px 0;
+	margin:0 0 20px 0;		
+}
+
+#trivia p{
+	font-size: 16px;
+    font-style: italic;
+    line-height: 16px;
+    text-align: left;
+	padding:0 0 10px 0;
+}
+#pageid{
+	color:$blue;
+	font-size:$size - 2px; //subtraction
+	border-bottom:$bottom;
+	padding:0 0 10px 0;
+	margin:0 0 20px 0;
+}
+
+
+#tourDescriptions{
+	img
+	{ 
+		float:left;
+		padding-bottom:10px;
+		padding-right:10px;
+	}
+	p
+	{
+		font-size: 18px;
+		font-style: italic;
+		line-height: 22px;
+		border-bottom:$bottom;
+		padding:10px 0;
+		text-align: left;
+	}
+	a.more{
+		display:block;
+		float: right;
+		width: 95px;
+		height: 30px;
+		background: url(../images/more_bug.gif) no-repeat left top;
+		text-indent: -1000em;
+		margin: 0 0 0 15px;
+	}
+	h1{
+		color:$blue;
+		font-size:$size - 2px; //subtraction
+		border-bottom:$bottom;
+		padding:0 0 10px 0;
+		margin:0 0 20px 0;
+		@extend trivia;
+		
+	}
+	h2{
+		clear: both;
+		color: #193742;
+		font-size: 26px;
+		font-weight: bold;
+		padding: 10px 0 0 0;
+		text-align: left;
+	}
+}
+
+#mainarticle{
+	img
+	{ 
+		float:right;
+		padding-bottom:10px;
+	}
+	p
+	{
+		font-size: 18px;
+		font-style: italic;
+		line-height: 22px;
+		text-align: left;
+	}
+	
+	h1{
+		color:$blue;
+		font-size:$size - 2px; //subtraction
+		border-bottom:$bottom;
+		padding:0 0 10px 0;
+		margin:30px 0 20px 0;
+		
+	}
+	h2{
+		clear: both;
+		color: #193742;
+		font-size: 26px;
+		font-weight: bold;
+		padding: 0 0 11px;
+		text-align: left;
+	}
+}
+
+.copyright{
+	text-align:center;
+	padding:20px 0;
+}

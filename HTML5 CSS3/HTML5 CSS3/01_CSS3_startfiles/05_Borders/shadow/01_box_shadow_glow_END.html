@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>1 CSS 3.0 box Shadow_Glow END </title>
+<style type="text/css">
+	#shadow_box
+	{
+		width:200px;
+		height:30px;
+		background-color:#609;
+		text-align:center;
+		padding-top:10px;
+		float:left;
+		margin:0px 50px;
+		color:white;
+		
+		/* vendor specific / browser specific / properitoriery properies */
+		/* box-shadow: inset Xpx Ypx BLURpx SPREADpx #0000FF; */
+		-webkit-box-shadow:inset 5px 5px 10px 15px #0000FF;
+		-moz-box-shadow:5px 5px 2px 5px #0000FF;
+		-o-box-shadow:5px 5px 2px 5px #0000FF;
+		-ms-box-shadow:5px 5px 2px 5px #0000FF;
+		
+		/*actual propery to insert box-shadow */
+		box-shadow: inset 5px 5px 10px 2px #0000FF;  /* inset ,x offset, y offset, blur, spread , color */
+			
+	}
+	
+	#glow_box
+	{
+		width:200px;
+		height:30px;
+		background-color:#609;
+		text-align:center;
+		padding-top:10px;
+		float:left;
+		color:white;
+	
+		/* vendor specific / browser specific / properitoriery properies */
+		/* box-shadow: inset Xpx Ypx BLURpx SPREADpx #0000FF; */
+		-webkit-box-shadow:0px 0px 5px 5px #0000FF;
+		-moz-box-shadow:0px 0px 5px 5px #0000FF;
+		-o-box-shadow:0px 0px 5px 5px #0000FF;
+		-ms-box-shadow:0px 0px 5px 5px #0000FF;
+	
+		/*actual propery to insert box-shadow */
+		box-shadow:0px 0px 5px 5px #0000FF;
+		
+	}
+
+</style>
+</head>
+
+<body>
+
+<div id="shadow_box">About Us Shadow</div>
+
+<div id="glow_box">About Us Glow</div>
+
+</body>
+
+</html>

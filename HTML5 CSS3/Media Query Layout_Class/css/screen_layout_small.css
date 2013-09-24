@@ -1,0 +1,46 @@
+header{
+	height: 153px;
+	background-image: url('../images/banner_small.jpg');
+}
+header a.logo{
+	background-image: url('../images/logo_small.png');
+	height: 61px;
+	width: 50px;
+	top: 25px;
+	/*display: none;*/
+}
+nav{
+	/*top: 245px;*/
+	position: static;
+	height: auto;
+	padding: 20px 0 20px 0;
+}
+nav>a{
+	display: block;
+	height: 30px;
+	margin: 15px;
+	border-radius: 10px;
+	border: 1px solid silver;
+	padding: 10px 0 0 10px;
+	background: url('../images/mobile_link_arrow.png') no-repeat right center;
+}
+nav>a:hover{
+	background-color: rgba(255,255,255,0.1)
+}
+article{
+	padding: 20px 10px;
+}
+.promo_container{
+	padding: 0;
+}
+.promo_container .promo{
+	float: none;
+	width: auto;
+	padding-top: 10px;
+	border-top:1px solid black;
+	background-position: 20px 13px;
+
+}
+.promo_container .promo .content{
+	padding:0 20px 5px 90px;
+}

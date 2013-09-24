@@ -1,0 +1,118 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	margin:0px;
+	padding:0px;
+}
+
+#wrapper{
+	width:100%;
+	background-color:#09C;
+	margin:auto;
+}
+
+header{
+	width:100%;
+	height:50px;
+	background-color:#FC3;
+}
+
+nav{
+	width:80%;
+	margin:auto;
+	background-color:#093;
+}
+
+nav ul 
+{
+	margin:0px;
+	padding:0px;
+	list-style-type:none;
+}
+
+nav ul li
+{
+	margin:0px;
+	padding:0px;
+	list-style-type:none;
+	display:block;
+	float:left;
+	width:200px;
+	background-color:#CC9;
+	height:30px;
+}
+
+article{
+	width:98%;
+	height:800px;
+	background-color:#FF0;
+	margin:auto;
+	clear:both;
+}
+
+article #aside1
+{
+	width:24%;
+	height:781px;
+	float:left;
+	margin-left:0.80%;
+	margin-right:0.80%;	
+	background-color:#FC0;
+}
+article #aside1 img
+{
+	width:100%;
+}
+
+article #aside2
+{
+	width:24%;
+	height:781px;
+	float:left;
+	margin-right:0.80%;		
+	background-color:#FC0;
+}
+article #aside2 img
+{
+	width:100%;
+}
+
+
+article #aside3
+{
+	width:24%;
+	height:781px;
+	float:left;
+	margin-right:0.80%;	
+	background-color:#FC0;
+}
+article #aside3 img
+{
+	width:100%;
+}
+
+
+article #aside4
+{
+	width:24%;
+	height:781px;
+	float:left;
+	margin-right:0.80%;		
+	background-color:#FC0;
+}
+article #aside4 img
+{
+	width:100%;
+}
+
+
+footer{
+ width:100%;
+ height:50px;
+ background-color:#F96
+	
+}
+
+
+

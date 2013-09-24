@@ -1,0 +1,24 @@
+@mixin gradient{
+background: rgb(231,211,140); /* Old browsers */
+background: -moz-linear-gradient(top, rgb(231,211,140) 0%, rgb(237,206,91) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(231,211,140)), color-stop(100%,rgb(237,206,91))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgb(231,211,140) 0%,rgb(237,206,91) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgb(231,211,140) 0%,rgb(237,206,91) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgb(231,211,140) 0%,rgb(237,206,91) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgb(231,211,140) 0%,rgb(237,206,91) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7d38c', endColorstr='#edce5b',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin rounded{
+	border-radius:20px;
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+}
+
+@mixin shadow{
+	box-shadow:1px 1px 7px 3px #000;
+}
+
+@mixin side{	
+	@include gradient;
+}

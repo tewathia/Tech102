@@ -1,0 +1,70 @@
+#container{
+	width:300px;
+	position: static;
+}
+#header{
+	background:0 none;
+	height: auto;
+}
+.logo{
+	position: static;
+	margin: 10px auto;
+	width: 257px;
+}
+nav{
+	width: 200px;
+	position: static;
+}
+nav ul li{
+	background: 0 none;
+	padding: 0px;
+	text-align: center;
+	font: 12px Verdana;
+}	
+nav ul li a{
+	color:white;
+	background: #3b84b9;
+	padding: 10px;
+	width: 280px;
+	border-bottom: 1px solid #6190ba;
+	margin: 0 0 1px 0;
+	text-decoration: none;
+	display: block;
+}
+nav ul li a:hover{
+	background: #112255;
+}
+nav ul li.none{
+	padding: 0;
+}
+nav ul li a img{
+	display: none;
+}
+#banner{
+	display: none;
+}
+#content{
+	margin: 0 auto;
+	position: static;
+	width: 300px;
+}
+#ltsnewsbox{
+	width: 255px;
+}
+#bottomcontent{
+	margin: auto;
+	position: static;
+	width: 268px;
+	padding: 13px 0 10px 12px;
+}
+.box{
+	float: none;
+	font: 11px Verdana, Geneva, sans-serif;
+	margin: 0 auto 10px;
+	padding: 10px;
+	padding-bottom: 20px;
+}
+footer{
+	position: relative;
+	top: 82px;
+}

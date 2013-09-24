@@ -1,0 +1,154 @@
+
+body 
+{
+	padding: 0px;
+	margin:0px;
+	font-family: Verdana, Geneva, sans-serif;
+	line-height: 1.2em;	
+	font-size:1em;
+}
+
+/*
+h1 
+{
+	line-height: 100%;
+	font-size: 1.6em;
+}
+
+h2
+{
+	font-size: 1.2em;
+}
+
+#header, #navigation, #footer, h1, h2, h3 
+{
+	font-family: Verdana, Geneva, sans-serif;
+}
+*/
+
+/* header related properties */
+#header 
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	background: rgba(102,0,153,1);
+}
+
+#header h2
+{
+	padding:30px 20px;
+}
+
+
+/* navigation related properties */
+#navigation ul 
+{
+	margin: 0;
+	padding: 10px;
+	list-style: none;
+	color: #333;
+	background:rgba(13, 17, 54,0.9);
+	overflow: hidden;    
+}
+
+#navigation li
+{
+	display:inline-block;
+}
+
+#navigation a 
+{
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 10px;
+	font-weight: bold;
+}
+
+#navigation a:hover 
+{
+	background: rgb(09, 54, 98)
+}
+
+
+/* sidebar related properties - sidebar @ left hand side */
+.sidebar
+{
+	float: left;
+	margin: 0 0 20px 1%;
+	padding: 0;  
+	background: none repeat scroll 0 0 #69D2E7;
+
+}
+
+/* .bloc class written inside sidebar @ left hand side */
+.sidebar .bloc 
+{
+	padding: 20px;
+	color: #fff;
+	background: rgb(102,51,255);
+	font-size: 85%;  
+} 
+
+/* bar1 @ extreme left*/
+#bar1
+{
+	width:20%;
+}
+
+/* bar2 @ middle left*/
+#bar2
+{
+	width:20%;
+}
+
+
+/* content related properties - content @ right hand side */
+#content 
+{
+	width: 56%;	
+	float: left;
+	margin: 0 0 20px 1%;
+	padding: 0;
+	color: #fff;
+	background: rgba(102,0,153,1);
+
+}
+
+/* .bloc class written inside content @ right hand side */
+#content .bloc 
+{
+	padding: 20px;
+	color: #333;
+	background: rgb(102,102,255);
+}
+
+.dataOutput
+{
+	border-radius: 5px;
+	padding:10px;
+	background:rgba(255, 255, 255,1);
+	box-shadow: 0px 0px 3px 0 rgba(51, 51, 51,0.8);
+
+}
+
+
+/* footer related properties */
+#footer 
+{
+	width: 100%;	
+	clear: both;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	background: rgba(102,0,153,1);
+
+}
+
+#footer h3 
+{
+	padding: 20px 20px;
+}
+

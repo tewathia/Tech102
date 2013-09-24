@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>02_transition_delay_time_functions_START</title>
+
+	<style type="text/css">
+    
+        #outerWrapper 
+        {
+            width:1100px;
+            height:500px;
+            background-color:#FCC;
+            padding:25px;
+        }
+		
+        .transEx 
+        {
+            margin:2em;
+            width:120px;
+            height:40px;
+            border:2px solid;
+            border-color:#666;
+            background-color:#066882;
+            color:#fff;
+            line-height:40px;
+            text-align:center;
+            
+            -webkit-border-radius:.5em;
+            -moz-border-radius:.5em;
+            -o-border-radius:.5em;
+            -ms-border-radius:.5em;
+			
+            border-radius:.5em;
+            
+			/* vendor specific / browser specific / properitoriery properies */
+			/* transition: property, delay, duration, timing-function */
+
+
+
+			
+			/*actual propery to insert transition effects */
+			/* transition: property, delay, duration, timing-function */
+
+
+        }
+        
+        #default 
+        {
+			/* vendor specific / browser specific / properitoriery properies */
+			/* transition: timing-function */
+
+
+
+
+
+			/*actual propery to insert transition effects */
+			/* transition: timing-function */
+
+
+        }
+        
+        #linear 
+        {
+			/* vendor specific / browser specific / properitoriery properies */
+			/* transition: timing-function */
+
+
+
+
+
+				
+			/*actual propery to insert transition effects */
+			/* transition: timing-function */
+
+
+        }
+		
+        #ease-in 
+		{
+			/* vendor specific / browser specific / properitoriery properies */
+			/* transition: timing-function */
+
+
+
+
+
+			
+			/*actual propery to insert transition effects */
+			/* transition: timing-function */
+
+
+        }
+        
+        #ease-out 
+        {
+			/* vendor specific / browser specific / properitoriery properies */
+			/* transition: timing-function */
+            -webkit-transition-timing-function:ease-out;	
+
+
+
+
+
+
+			/*actual propery to insert transition effects */
+			/* transition: timing-function */
+
+
+
+        }
+        
+        #ease-in-out 
+        {
+			/* vendor specific / browser specific / properitoriery properies */
+			/* transition: timing-function */
+
+
+
+
+				
+			/*actual propery to insert transition effects */
+			/* transition: timing-function */
+
+
+        }
+        
+        #cubic-bezier 
+        {
+			/* vendor specific / browser specific / properitoriery properies */
+			/* transition: timing-function */
+
+
+
+
+
+			/*actual propery to insert transition effects */
+			/* transition: timing-function */
+
+
+
+        }
+        
+        .transEx:hover 
+        {
+			
+            background-color:#FC8F30;
+            color:#000;
+
+			/* vendor specific / browser specific / properitoriery properies */
+			/* transform: translate */
+
+
+
+
+
+			/*actual propery to insert 2d transform effects */
+			/* transform: translate */
+
+
+
+
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="outerWrapper">
+    
+      <div id="default" class="transEx">Ease (Default)</div>
+      <div id="linear" class="transEx">Linear</div>
+      <div id="ease-in" class="transEx">Ease-In</div>
+      <div id="ease-out" class="transEx">Ease-Out</div>
+      <div id="ease-in-out" class="transEx">Ease-In-Out</div>
+      <div id="cubic-bezier" class="transEx"> Customize - Cubic-Bezier</div>
+      
+    </div>
+    
+</body>
+
+</html>

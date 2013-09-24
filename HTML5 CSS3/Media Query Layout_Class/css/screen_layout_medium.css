@@ -1,0 +1,28 @@
+header{
+	height: 245px;
+	background-image: url('../images/banner_medium.jpg');
+}
+header a.logo{
+	background-image: url('../images/logo_medium.png');
+	height: 146px;
+	width: 120px;
+	top: 30px;
+	/*display: none;*/
+}
+nav{
+	top: 245px;
+}
+.promo_container 
+{ 
+	padding: 0 20px 15px 20px; 
+}
+
+.promo_container .promo 
+{
+	 background-position: 0 0; 
+}
+
+.promo_container .promo .content 
+{ 
+padding: 70px 30px 0 0; 
+}
