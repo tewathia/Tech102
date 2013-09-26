@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Google Charts Demonstration - Scatter and Pie Charts</title>
+ <style>
+ div{
+  /*width: 99%;*/
+  /*height: 300px;*/
+  display: block;
+  border: 2px dotted red;
+ }
+ </style>
+ <script type="text/javascript" src="http://google.com/jsapi"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script> 
+
+ <script>
+ google.load('visualization', '1.0', {packages:['corechart']});
+ google.setOnLoadCallback(drawMyCharts);
+ function drawMyCharts() {
+
+     // pie chart starts here
+
+     // data definition for the pie chart
+     dataPie = google.visualization.arrayToDataTable([
+      ['Pie', 'Share'],
+      ['Apple', 200],
+      ['KeyLime', 300],
+      ['Strawberry', 127],
+      ['Cherry', 280]
+      ]);
+
+     // options for the pie chart
+     var optionsPie = {
+      title: 'pie shares',
+      width: 500,
+      height: 500,
+      slices: {  
+      1: {offset: 0.2},
+      3: {offset: 0.3},
+      },
+    };
+
+    pieChartObj = new google.visualization.PieChart(document.getElementById('pieChartDiv'));
+    pieChartObj.draw(dataPie, optionsPie);
+    console.log('Pie Chart', pieChartObj);
+
+     // scatter chart starts here
+
+     // data definition for the scatter chart
+     var dataScatter = google.visualization.arrayToDataTable([
+      ['Scatter ID', 'Count'],
+      [2, 200],
+      [3, 300],
+      [3, 300],
+      [1, 127],
+      [4, 210],
+      [1, 227],
+      [4, 281],
+      [1, 137],
+      [4, 180]
+      ]);
+
+
+     // options for the scatter chart
+
+     var optionsScatter = {
+      title: 'pie count',
+      width: 500,
+      height: 500,
+      hAxis: {title: 'Pie ID', minValue: 0, maxValue: 5},
+      vAxis: {title: 'Count', minValue: 100, maxValue: 320},
+      legend: 'none'
+     };
+
+
+
+     var scatterChartObj = new google.visualization.ScatterChart(document.getElementById('scatterChartDiv'));
+     console.log('Scatter Chart', scatterChartObj)
+     scatterChartObj.draw(dataScatter, optionsScatter);
+    }
+
+    </script>
+   </head>
+   <body>
+    <div id="pieChartDiv">Pie Chart here</div>
+    <div id="scatterChartDiv">Scatter Chart here</div>
+   </body>
+   </html>

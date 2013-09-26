@@ -1,0 +1,68 @@
+function Order(){
+	var ProductList = new Array();
+	this.addProduct = function(Product){
+			ProductList.push(Product);
+		}
+
+		this.value = function(){
+			var valueSum = 0;
+			for (var i in ProductList){
+				currentProd = ProductList[i];
+				console.log(currentProd.units(), currentProd.cost(), currentProd.units()*currentProd.cost());
+				valueSum += currentProd.units()*currentProd.cost();
+			}
+
+			return valueSum;
+		}
+	}
+
+	function Product(ID, NAME, COST, UNITS){
+	console.log(arguments);
+		if (this.constructor.name != arguments.callee.name){
+			return new Product.apply(arguments);	
+		}
+		else{
+			this.id = ID;
+			this.name = NAME;
+			this.cost = function(costInput){
+				if (typeof(costInput)=="undefined"){
+					return _cost;
+				}
+				else{
+					if (costInput < 0){
+						throw new Error("Invalid Cost");
+					}
+					else{
+						_cost = costInput;	
+					}
+				}
+			}
+			this.cost(COST);
+			_units = UNITS;
+			this.units = function(){
+				if (arguments.length==0) return _units;
+				else
+					return _units[0];
+			}
+			var _cost;
+	}
+
+}
+
+// var notNewProduct = Product(2, 'tablet', 44990, 12);
+var p1 = new Product(1, 'mobile', 11990, 11);
+var p2 = new Product(2, 'tablet', 44990, 12);
+var p3 = new Product(3, 'laptop', 84990, 16);
+
+var myOrder = new Order();
+myOrder.addProduct(p1);
+myOrder.addProduct(p2);
+myOrder.addProduct(p3);
+myOrder.value();
+
+
+function arrayToList(array){
+	for (var i in array){
+		 array[i]
+	}
+}
