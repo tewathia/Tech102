@@ -78,8 +78,33 @@ function SalaryCalculator(Basic, HRA, DA, Tax){
 
 
 
-// console.log('a');
 
+$('#btnCreate').on("click", function(){
+	// console.log($('#calculatorBox').html());
+	$('#calculatorBox').html('<div id="basicBox"><input type="number" placeholder="basic" id="inputBasic"></div>'
+		+ '<div id="hraBox"><input type="number" placeholder="hra" id="inputHRA"></div>'
+		+ '<div id="daBox"><input type="number" placeholder="da" id="inputDA"></div>'
+		+ '<div id="taxBox"><input type="number" placeholder="tax" id="inputTax"></div>'
+		+ '<div><input type="button" id="btnCalc" value="Calculate"></input><span id="showSalary"></span></div>');
+	calcView.init();
+});
+
+
+// show hide toggle
+$('#btnShowHide').on("click", hideDiv);
+
+function hideDiv(){
+	calcView.hide();
+	$('#btnShowHide').text('Show').on("click", showDiv);
+
+}
+function showDiv(){
+	calcView.show();
+	$('#btnShowHide').text('Hide').on("click", hideDiv);
+}
+
+
+// calcview object created
 var calcView = {
 	init: function(){
 		$('#btnCalc').on("click", function(){
