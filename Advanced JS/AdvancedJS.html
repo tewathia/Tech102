@@ -3,11 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Advanced JS</title>
+	<style>
+	#calculatorBox{
+	border: 3px solid black;
+		}
+		</style>
+</head>
+<body>
+	<div id="calculatorBox">
+		<div id="basicBox"><input type="number" placeholder="basic" id="inputBasic">
+			<!-- <button id="btnBasic">Set BASIC</button></div> -->
+		<div id="hraBox"><input type="number" placeholder="hra" id="inputHRA">
+			<!-- <button id="btnHRA">Set HRA</button></div> -->
+		<div id="daBox"><input type="number" placeholder="da" id="inputDA">
+			<!-- <button id="btnDA">Set DA</button></div> -->
+		<div id="taxBox"><input type="number" placeholder="tax" id="inputTax">
+			<!-- <button id="btnTax">Set Tax</button></div> -->
+		<div>
+		<!-- <button id="btnCalc">Calculate</button> -->
+		<input type="button" id="btnCalc" value="Calculate"></input>
+		<span id="showSalary"></span>
+		</div>
+	</div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
 	<script src="assets/js/exercise.js"></script>
 	<script src="assets/js/inheritance.js"></script>
-</head>
-<body>
-	
-</body>
+	<script src="assets/js/pattern.singleton.js"></script>
+	<script src="assets/js/pattern.module.js"></script>
+</body>	
 </html>

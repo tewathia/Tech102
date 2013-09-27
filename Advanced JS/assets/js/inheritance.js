@@ -51,3 +51,4 @@ var s2 = new Student(1002, "B");
 
 s1.display();
 s2.display();
+
