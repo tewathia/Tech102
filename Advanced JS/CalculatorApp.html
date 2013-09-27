@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Salary Calculator</title>
+	<script>
+		var calculator = (function(){
+			var _basic = 0
+				, _hra = 0
+				, _da = 0
+				, _tax = 0
+				, _salary = 0
+				, _onSalaryChangeSubscribers = new Array();
+			function getNet(){
+				return _basic + _hra + _da;
+			}
+			return {
+				basic : function(){
+					if (arguments.length == 0) return _basic;
+					_basic = arguments[0];
+				},
+				hra : function(){
+					if (arguments.length == 0) return _hra;
+					_hra = arguments[0];
+				},
+				da : function(){
+					if (arguments.length == 0) return _da;
+					_da = arguments[0];
+				},
+				tax : function(){
+					if (arguments.length == 0) return _tax;
+					_tax = arguments[0];
+				},
+				salChangeSubscriber : function(newSubs){
+					_onSalaryChangeSubscribers.push(newSubs);
+				},
+				onSalaryChange : function(){
+					for (var i in _onSalaryChangeSubscribers){
+						_onSalaryChangeSubscribers[i](_salary);
+					}
+				},
+				calculate : function(){
+					_salary =  getNet() * ((100 - _tax)/100);
+					console.log(this);
+					this.onSalaryChange(_salary);
+				},
+				salaryValue : function(){
+					return _salary;
+				}
+			}
+		}());
+		salaryChangeFunction = function(sal){
+			document.getElementById("divResult").innerHTML = sal;
+		}
+		var calculatorView = (function(calc){
+			var calculator = calc
+				,txtBasic
+				,txtHra
+				,txtDa
+				,txtTax
+				,btnCalculate
+				,divResult
+				,divCalculator
+				,divCalculateCount
+				,calculateCount = 0;
+			calculator.salChangeSubscriber(function (sal) {
+				document.getElementById("divResult").innerHTML = sal;
+			});	
+			function onCalculate(){
+				calculateCount++;
+     			divCalculateCount.innerHTML = calculateCount;
+     			calculator.calculate();
+				// calculator.onSalaryChange();
+			}
+
+			function onTxtBasicChange(){
+				calculator.basic(parseInt(txtBasic.value,10));
+				calculator.calculate();
+				onCalculate();
+			}
+			function onTxtHraChange(){
+				calculator.hra(parseInt(txtHra.value,10));
+				calculator.calculate();
+				onCalculate();
+			}
+			function onTxtDaChange(){
+				calculator.da(parseInt(txtDa.value,10));
+				calculator.calculate();
+				onCalculate();
+			}
+			function onTxtTaxChange(){
+				calculator.tax(parseInt(txtTax.value,10));
+				calculator.calculate();
+				onCalculate();
+			}
+
+			function initialize(){
+				divCalculateCount = document.getElementById("divCalculateCount");
+				divCalculator = document.getElementById("divCalculator");
+				btnCalculate = document.getElementById("btnCalculate");
+				txtBasic = document.getElementById("txtBasic");
+				txtHra = document.getElementById("txtHra");
+				txtDa = document.getElementById("txtDa");
+				txtTax = document.getElementById("txtTax");
+				divResult = document.getElementById("divResult");
+
+				txtBasic.onchange = onTxtBasicChange;
+				txtHra.onchange = onTxtHraChange;
+				txtDa.onchange = onTxtDaChange;
+				txtTax.onchange = onTxtTaxChange;
+				btnCalculate.onclick = onCalculate;
+			}
+			function hide(){
+				divCalculator.style.display = "none";
+			}
+
+			return {
+				init: initialize,
+				hide : hide
+			};
+		}(calculator));
+		window.onload = function(){
+			calculatorView.init();
+		}
+	</script>
+</head>
+<body>
+	<div id="divCalculator">
+	<div><label for="txtBasic">Basic :</label><input type="text" name="" id="txtBasic"></div>
+	<div><label for="txtHra">Hra :</label><input type="text" name="" id="txtHra"></div>
+	<div><label for="txtDa">Da :</label><input type="text" name="" id="txtDa"></div>
+	<div><label for="txtTax">Tax :</label><input type="text" name="" id="txtTax"></div>
+	<div><input type="button" value="Calculate" id="btnCalculate"></div>
+	<div id="divResult"></div>	
+	<div id="divCalculateCount"></div>
+	</div>
+	
+</body>
+</html>

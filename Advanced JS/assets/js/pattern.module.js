@@ -85,7 +85,7 @@ $('#btnCreate').on("click", function(){
 		+ '<div id="hraBox"><input type="number" placeholder="hra" id="inputHRA"></div>'
 		+ '<div id="daBox"><input type="number" placeholder="da" id="inputDA"></div>'
 		+ '<div id="taxBox"><input type="number" placeholder="tax" id="inputTax"></div>'
-		+ '<div><input type="button" id="btnCalc" value="Calculate"></input><span id="showSalary"></span></div>');
+		+ '<div><input type="button" id="btnCalc" value="Calculate"></input><span id="showSalary"></span><div><span id="countSpan"></span><span></span></div></div>');
 	calcView.init();
 });
 
@@ -107,15 +107,17 @@ function showDiv(){
 // calcview object created
 var calcView = {
 	init: function(){
+		var _count = 0;
 		$('#btnCalc').on("click", function(){
+			_count++;
 			var basic = parseInt($('#inputBasic').val()),
-			hra = parseInt($('#inputHRA').val()),
-			da = parseInt($('#inputDA').val()),
-			tax = parseInt($('#inputTax').val());
+				hra = parseInt($('#inputHRA').val()),
+				da = parseInt($('#inputDA').val()),
+				tax = parseInt($('#inputTax').val());
 			sc = new SalaryCalculator(basic, hra, da, tax);
 			console.log('calculate clicked');
 			$('#showSalary').text(sc.calculate());
-
+			$('#countSpan').text(_count).next().text(' times');
 		});
 
 	},
