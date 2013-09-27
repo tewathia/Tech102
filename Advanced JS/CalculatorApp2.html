@@ -3,6 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Salary Calculator</title>
+</head>
+<body>
+	<div id="divCalculator">
+		<div><label for="txtBasic">Basic :</label><input type="text" name="" id="txtBasic"></div>
+		<div><label for="txtHra">Hra :</label><input type="text" name="" id="txtHra"></div>
+		<div><label for="txtDa">Da :</label><input type="text" name="" id="txtDa"></div>
+		<div><label for="txtTax">Tax :</label><input type="text" name="" id="txtTax"></div>
+		<div><input type="button" value="Calculate" id="btnCalculate"></div>
+		<div id="divResult"></div>	
+		<div id="divCalculateCount"></div>
+	</div>
+	
 	<script>
 	var calculator = (function(){
 		var _basic = 0
@@ -42,7 +54,7 @@
 			calculate : function(){
 				_salary =  getNet() * ((100 - _tax)/100);
 				console.log(this);
-				this.onSalaryChange(_salary);
+				this.onSalaryChange();
 			},
 			salaryValue : function(){
 				return _salary;
@@ -123,17 +135,5 @@ window.onload = function(){
 	calculatorView.init();
 }
 </script>
-</head>
-<body>
-	<div id="divCalculator">
-		<div><label for="txtBasic">Basic :</label><input type="text" name="" id="txtBasic"></div>
-		<div><label for="txtHra">Hra :</label><input type="text" name="" id="txtHra"></div>
-		<div><label for="txtDa">Da :</label><input type="text" name="" id="txtDa"></div>
-		<div><label for="txtTax">Tax :</label><input type="text" name="" id="txtTax"></div>
-		<div><input type="button" value="Calculate" id="btnCalculate"></div>
-		<div id="divResult"></div>	
-		<div id="divCalculateCount"></div>
-	</div>
-	
 </body>
 </html>

@@ -3,15 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Salary Calculator</title>
-	<style>
-		table{
-			border-collapse: collapse;
-		}
-		td, th{
-			border: 1px dotted red; 
-		}
-	</style>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>	
 	<script>
 		var calculator = (function(){
 			var _basic = 0
@@ -22,6 +13,11 @@
 				, _onSalaryChangeSubscribers = new Array();
 			function getNet(){
 				return _basic + _hra + _da;
+			}
+			function triggerOnSalaryChange(){
+					for (var i in _onSalaryChangeSubscribers){
+						_onSalaryChangeSubscribers[i](_salary);
+					}
 			}
 			return {
 				basic : function(){
@@ -43,14 +39,9 @@
 				salChangeSubscriber : function(newSubs){
 					_onSalaryChangeSubscribers.push(newSubs);
 				},
-				onSalaryChange : function(){
-					for (var i in _onSalaryChangeSubscribers){
-						_onSalaryChangeSubscribers[i](_salary);
-					}
-				},
 				calculate : function(){
 					_salary =  getNet() * ((100 - _tax)/100);
-					this.onSalaryChange(_salary);
+					triggerOnSalaryChange();
 				},
 				salaryValue : function(){
 					return _salary;
@@ -135,21 +126,9 @@
 	<div><label for="txtHra">Hra :</label><input type="text" name="" id="txtHra"></div>
 	<div><label for="txtDa">Da :</label><input type="text" name="" id="txtDa"></div>
 	<div><label for="txtTax">Tax :</label><input type="text" name="" id="txtTax"></div>
-	<div id="divResult"></div>
-	<div >
-			<table id="resultTable">
-				<tr>
-					<th>Basic</th>
-					<th>HRA</th>
-					<th>DA</th>
-					<th>Tax</th>
-					<th>Salary</th>
-				</tr>
-			</table>
-		</div>	
+	<div id="divResult"></div>	
 	<div id="divCalculateCount"></div>
 	</div>
-	<script src="assets/js/salaryTable.js"></script>
 	
 </body>
 </html>
