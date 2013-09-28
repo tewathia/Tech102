@@ -8,6 +8,7 @@ var eventBus = (function (){
 			_eventList[eventID] = new Array();
 		}
 		_eventList[eventID].push(callback);
+		return this;
 	}
 
 	function pubDef(eventID, product){
@@ -23,6 +24,8 @@ var eventBus = (function (){
 				}
 			}, 1);
 		}
+		return this;
+		
 	}
 
 	return {
@@ -76,7 +79,8 @@ var o3 = {
 		for(var i = 0; i < 1000000; i++){
 			for (var j = 0; j<10000; j++){
 			}
-		} 
+		}
+		console.log('o3 done'); 
 	},
 	onRemProd : function(product){
 		for(var i = 0; i < 1000000; i++){
@@ -90,20 +94,7 @@ var o3 = {
 var pL = new ProductList();
 
 
-eventBus.subscribe("/prodAdd", o1.onAddProd);
-
-eventBus.subscribe("/prodRem", o1.onRemProd);
-
-
-eventBus.subscribe("/prodAdd", o2.onAddProd);
-
-eventBus.subscribe("/prodRem", o2.onRemProd);
-
-
-eventBus.subscribe("/prodAdd", o3.onAddProd);
-
-eventBus.subscribe("/prodRem", o3.onRemProd);
-
+eventBus.subscribe("/prodAdd", o1.onAddProd).subscribe("/prodAdd", o2.onAddProd).subscribe("/prodAdd", o3.onAddProd);
 
 
 /*eventBus - a bus where events are published and subscribed.
