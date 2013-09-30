@@ -1,0 +1,40 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Salary Calculator</title>
+	<style>
+	table{
+		border-collapse: collapse;
+	}
+	td, th{
+		border: 2px dotted red; 
+	}
+	</style>
+	<script data-main="assets/lib/calcMain" src="assets/lib/require.js"></script>
+</head>
+<body>
+	<div id="divCalculator">
+		<div><label for="txtBasic">Basic :</label><input type="text" name="" id="txtBasic"></div>
+		<div><label for="txtHra">Hra :</label><input type="text" name="" id="txtHra"></div>
+		<div><label for="txtDa">Da :</label><input type="text" name="" id="txtDa"></div>
+		<div><label for="txtTax">Tax :</label><input type="text" name="" id="txtTax"></div>
+		<div id="divResult"></div>
+		<div >
+			<table id="resultTable">
+				<tr>
+					<th>Basic</th>
+					<th>HRA</th>
+					<th>DA</th>
+					<th>Tax</th>
+					<th>Salary</th>
+				</tr>
+			</table>
+		</div>	
+		<div id="divCalculateCount"></div>
+	</div>
+	<!-- // <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script> -->
+	<!-- // <script src="assets/js/salaryTable.js"></script> -->
+</body>
+</html>

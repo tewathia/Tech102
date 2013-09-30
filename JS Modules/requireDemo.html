@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Script Loading</title>
+	<script src="assets/lib/require.js"></script>
+	<!-- // <script src="assets/lib/angular.js"></script> -->
+	<!-- // <script src="assets/lib/backbone.js"></script> -->
+	<!-- // <script src="assets/js/node.add.js"></script> -->
+	<script>
+
+	require(['assets/js/book', 'assets/js/requireAdd'], function(book, requireAdd){
+		console.log('Book - ');
+		console.dir(book);
+		console.log('Add - ');
+		console.dir(requireAdd);
+		console.log(requireAdd.add(1,2,3,4));
+
+	});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
