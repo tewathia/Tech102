@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Document</title>
+ <script src="assets/lib/jquery.js" ></script>
+ <script src="assets/lib/underscore.js"></script>
+ <script src="assets/lib/backbone.js"></script>
+ <script src="assets/lib/backbone.localStorage.js"></script>
+ <script type="text/template" id="bookViewTemplate">
+ <div id="bookView">
+ <span id="idSpan">ID:</span>
+ <input value="<%=id%>" type="text" name="id" id="txtId" disabled>
+ <span id="titleSpan">TITLE:</span>
+ <input value="<%=title%>" type="text" name="title" id="txtTitle">
+ <span id="unitsSpan">UNITS:</span>
+ <input value="<%=units%>" type="text" name="units" id="txtUnits">
+ <button id="btnSubmit">Submit</button>
+ <span id="msg"></span>
+ </div> 
+ </script> 
+</head>
+<body>
+
+ <button id="initBtn" disabled>Initialize View</button>
+ <script>
+ var Backbone = Backbone;
+ var Book = Backbone.Model.extend({
+     url : 'books',
+     defaults : {
+       id : 0,
+       title : 'Empty Title',
+       units : 10
+     },
+     initialize : function () {
+       console.log(this);
+       console.log('id: ' + this.id + ', title: ' + this.get('title') + ', backbone!');
+     }
+   });
+
+
+ function onTitleChange() {
+   console.log('title changed.');
+ }
+
+
+ function onIdChange() {
+   console.log('id changed');
+ }
+
+ var myBook = new Book({title: 'JS Good Parts'});
+
+ myBook.sync = function (method, object, options) {
+   console.log("method is " + method);
+   console.log("id is " + object.id);
+   console.log("title is " + object.get('title'));
+   console.log("units is " + object.get('units'));
+ };
+
+
+ var BookView = Backbone.View.extend({
+  tagName: "div",
+  templateId: "#bookViewTemplate",
+
+  initialize: function(){
+   console.log('!initialized!');
+   // this.tempFunc = _.template($(this.templateId).html());   
+   this.listenTo(this.model, 'change', this.render);
+  },
+
+  events: {
+   "click #btnSubmit" : "onClickSubmit",
+   "change input:text" : "updateModel"
+  },
+
+  render: function(){
+   // this.$el.html(this.tempFunc(this.model.toJSON()));
+   this.$el.html(_.template($(this.templateId).html())(this.model.toJSON()));
+   // this.tempFunc = ;   
+
+   return this;
+  },
+
+  onClickSubmit: function() {
+   // this.model.set()
+   console.log('!submit clicked!')
+  },
+
+  updateModel: function() {
+   console.log('!change triggered!')
+   this.model.set('title', this.$el.find('[name=title]').val());
+   this.model.set('units', this.$el.find('[name=units]').val());
+
+
+  }
+ });
+
+
+     // var myBookView = new BookView(myBook, 'bookView')
+ var myBookView = new BookView({model: myBook});
+
+ window.myBookView.render().$el.appendTo($('body'));
+
+     </script>
+    </body>
+    </html>

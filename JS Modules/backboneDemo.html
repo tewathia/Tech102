@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Document</title>
+ <script src="assets/lib/jquery.js" ></script>
+ <script src="assets/lib/underscore.js"></script>
+ <script src="assets/lib/backbone.js"></script>
+ <script src="assets/lib/backbone.localStorage.js"></script>
+ <script type="text/template" id="bookViewTemplate">
+ <div id="bookView">
+ <span id="idSpan">ID:</span>
+ <input type="text" name="id" id="txtId" disabled>
+ <span id="titleSpan">TITLE:</span>
+ <input type="text" name="title" id="txtTitle">
+ <span id="unitsSpan">UNITS:</span>
+ <input type="text" name="units" id="txtUnits">
+ <button id="btnSubmit">Submit</button>
+ <span id="msg"></span>
+ </div>
+ 
+ </script>
+</head>
+<body>
+
+ <button id="initBtn">Initialize View</button>
+
+
+
+
+ <script>
+ var Backbone = Backbone;
+ var Book = Backbone.Model.extend({
+  url : 'books',
+  defaults : {
+   id : 0,
+   title : 'Empty Title',
+   units : 10
+  },
+  initialize : function () {
+   console.log(this);
+   console.log('id: ' + this.id + ', title: ' + this.get('title') + ', backbone!');
+  }
+ });
+ function onTitleChange() {
+  console.log('title changed.');
+ }
+ function onIdChange() {
+  console.log('id changed'); 
+ }
+
+ var myBook = new Book({title: 'JS Good Parts'});
+
+ myBook.sync = function(method, object, options) {
+  console.log("method is "+ method);
+  console.log("id is "+ object.id);
+  console.log("title is "+ object.get('title'));
+  console.log("units is "+ object.get('units'));
+ }
+
+ // book view constructor function without using Backbone.View
+ function BookView (BBM, divID) {
+  var _divNode = $($('#'+divID+'Template').html())[0]
+      // ,button = $('#'+divID+'>button');
+      , _button
+      , _id
+      , _title
+      , _units;
+
+      var _button = $(_divNode).find('button');
+      this.$root = $(_divNode);
+
+      this.initialize = function () {
+
+       $('[name=id]', $root).val(BBM.get('id'));
+       $('input[name=title]', $root).val(BBM.get('title')).change(function(){BBM.set('title', this.value)});
+       $('input[name=units]', $root).val(BBM.get('units'));
+
+      }
+
+      _button.on("click", function () {
+
+   // _id = _divNode.find('#txtId').val();
+   // _title = _divNode.find('#txtTitle').val();
+   // _units = _divNode.find('#txtUnits').val();
+   // BBM.set('id', _id);
+   // BBM.set('title', _title);
+   // BBM.set('units', _units);
+   // BBM.set('title', _divNode.find('#txtTitle').val());
+   BBM.set('units', $root.find('#txtUnits').val());
+
+   BBM.save();
+   $(this).next().text('done');
+  });
+
+
+     }
+
+     var myBookView = new BookView(myBook, 'bookView')
+     $('#initBtn').on("click", function(){
+      myBookView.initialize();
+     });
+     </script>
+    </body>
+    </html>

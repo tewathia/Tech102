@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Collections using Backbone</title>
+	<script src="assets/lib/jquery.js" ></script>
+	<script src="assets/lib/underscore.js"></script>
+	<script src="assets/lib/backbone.js"></script>
+	<script src="assets/lib/backbone.localStorage.js"></script>
+</head>
+<body>
+	
+	
+
+
+	<script>
+	var templateString = '<table id="bookTable"><tr><th>Title</th><th>Units</th></tr></table>';
+	var Book = Backbone.Model.extend({
+		url : 'books',
+		defaults : {
+			title : 'Empty Title',	
+			units : 10
+		},
+		initialize : function () {
+			console.log('!book created!');
+		}
+	});
+
+
+	var BooksCollection = Backbone.Collection.extend({
+		model:Book,
+		localStorage: new Backbone.LocalStorage("BookStorage")
+	});
+
+
+	var BooksListView = Backbone.View.extend({
+		
+		initialize: function(){
+			this.$el.html(templateString);
+			this.listenTo(this.collection, 'all', this.render);
+
+		},
+		render: function() {
+			// this.collection.fetch();
+			var $table = $('<table>')
+			for (var i in this.collection.models){
+				myModel = this.collection.models[i];
+				$table.append($('<tr><td>' + myModel.get('title') + '</td><td>' + myModel.get('units') + '</td></tr>'));
+
+			}
+
+			$header = $('<tr>').append('<th>Title</th>').append('<th>Units</th>');
+			this.$el.html($table).prepend($header);
+		},
+
+	});
+
+
+	var myBooksCollection = new BooksCollection();
+	var myBooksListView = new BooksListView({collection:myBooksCollection});
+
+	// myBooksListView.render();
+
+	$(document.body).append(myBooksListView.$el);
+	</script>
+</body>
+</html>
