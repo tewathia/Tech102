@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Router Demo</title>
+	<script type="text/template" id="categoriesTemplate">
+	<div>Categories</div>
+	</script>
+	<script type="text/template" id="productsTemplate">
+	<div>Products</div>
+	</script>
+	<style>
+		section {
+			border: 2px dotted silver;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div id="buttons"><input type="button" value="Categories" id="showCat"><input type="button" value="Products" id="showProd"></div> -->
+	
+	<a href="#products">Products</a>
+	<a href="#categories">Categories</a>
+
+	<section></section>
+
+	<script src="assets/lib/jquery.js" ></script>
+	<script src="assets/lib/underscore.js"></script>
+	<script src="assets/lib/backbone.js"></script>
+	<script>
+	var emptyModel = Backbone.Model.extend({});
+
+
+	var catView = Backbone.View.extend({
+		template: "#categoriesTemplate",
+		initialize: function () {
+			console.log('!categories initialized!');
+			this.$el.find('div').hide();
+			this.render();
+		},
+		render: function () {
+			this.$el.append($(this.template).html());
+			return this;
+		},
+		show: function() {
+			this.$el.find('div').show();
+			console.log('cat show');
+		},
+		hide: function() {
+			this.$el.find('div').hide();
+		}
+
+	});
+
+	var prodView = Backbone.View.extend({
+		template: "#productsTemplate",
+		initialize: function () {
+			console.log('!products initialized!');
+			this.render();
+			this.$el.find('div').hide();
+		},
+		render: function () {
+			this.$el.append($(this.template).html());
+			return this;
+		},
+		show: function() {
+			this.$el.find('div').show();
+		},
+		hide: function() {
+			this.$el.find('div').hide();
+		}
+
+
+	});
+
+	var cpRouter = Backbone.Router.extend({
+		routes: {
+			'products' : 'showProducts',
+			'categories' : 'showCategories'
+		},
+		showProducts : function () {
+			console.log('!products route!');
+			pV.show();
+			cV.hide();
+		},
+		showCategories : function () {
+			console.log('!categories route!');
+			pV.hide();
+			cV.show();
+
+		}
+	});
+
+	var pV = new prodView();
+	var cV = new catView();
+
+	$('section').html(pV.$el.html() + cV.$el.html());
+
+	var myRouter = new cpRouter();
+
+	Backbone.history.start();
+
+
+	// function routeFunc () {
+	// 	console.log('!clicked!');
+	// 	console.log(this);
+	// 	window.a = this;
+	// 	if ($(this).attr('id') == "showProd") {
+	// 		console.log('products');
+	// 	}
+	// 	else if ($(this).attr('id') == "showCat"){
+	// 		console.log('cat');
+	// 	}
+	// }
+
+	// $(':button').on("click", routeFunc);
+	</script>
+
+</body>
+</html>

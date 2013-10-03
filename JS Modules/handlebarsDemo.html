@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HandleBars Testing</title>
+	<script src="assets/lib/jquery.js" ></script>
+	<script src="assets/lib/handlebars.js"></script>	
+	<script type="text/x-handlebars-template" id="testHBTemplate">
+	<div>
+		<span>{{spanVal}}</span>
+		<p>{{paraVal}}</p>
+	</div>
+
+	</script>
+	<style>
+	div {
+		border:1px solid silver;
+	}
+	</style>
+</head>
+<body>
+
+	<div id="hb"></div>
+	<script>
+	var testTemplateFunc = Handlebars.compile($('#testHBTemplate').html());
+
+	var hbHTML = testTemplateFunc({spanVal:"span here", paraVal:"paragraph here"});
+
+
+	$('#hb').html(hbHTML);
+	</script>
+</body>
+</html>
