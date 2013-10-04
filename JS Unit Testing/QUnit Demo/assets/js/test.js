@@ -66,7 +66,7 @@ test("should be able to add three numbers", function() {
     calc.add(n1, n2, n3);
 
     // Assert
-    ok(addResult == calc.result, "test done");
+    equal(addResult, calc.result, "test done");
 
   });
 
@@ -88,7 +88,7 @@ test("should be able to add multiple numbers", function() {
     calc.add(n1, n2, n3, n4, n5, n6, n7, n8);
 
     // Assert
-    ok(addResult == calc.result, "test done");
+    equal(addResult, calc.result, "test done");
 
   });
 
