@@ -1,5 +1,4 @@
-define([], function () {
-
+define(['backbone'], function (Backbone) {
 
 	var BookView = Backbone.View.extend({
 		tagName: 'tr',

@@ -1,4 +1,4 @@
-define([], function () {
+define(['backbone'], function (Backbone) {
 	var Book = Backbone.Model.extend({
 		url: 'booksURL',
 		initialize: function () {

@@ -1,4 +1,4 @@
-define(['Book', 'BookView', 'Library'], function(Book, BookView, Library){
+define(['jquery', 'underscore', 'backbone','Book', 'BookView', 'Library'], function($, _, Backbone, Book, BookView, Library){
 
   var LibraryView = Backbone.View.extend({
     formTempId : '#formTemp',
