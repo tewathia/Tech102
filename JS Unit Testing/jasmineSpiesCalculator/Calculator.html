@@ -8,7 +8,7 @@
   <link rel="stylesheet" type="text/css" href="lib/jasmine-1.3.1/jasmine.css">
   <script type="text/javascript" src="lib/jasmine-1.3.1/jasmine.js"></script>
   <script type="text/javascript" src="lib/jasmine-1.3.1/jasmine-html.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>  
+  <!-- // <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>   -->
 
   <!-- include source files here... -->
   <script type="text/javascript" src="src/Calculator.js"></script>
@@ -16,7 +16,6 @@
 
   <!-- include spec files here... -->
   <script type="text/javascript" src="spec/SpecHelper.js"></script>
-  <script type="text/javascript" src="spec/CalculatorSpec.js"></script>
 
   <script type="text/javascript">
   (function() {
@@ -44,42 +43,38 @@
       jasmineEnv.execute();
     }
 
-
-
-
-    
-
-
   })();
   </script>
 
 </head>
 <body>
-<span id="toBeHidden">Anirudh Tewathia</span>
-<script>
+  <span id="toBeHidden">Anirudh Tewathia</span>
+  <script>
   
 
   // custom fadeout function
 
-    function myFadeOut (domNode, Duration, callback) {
+  var aSyncUT = {
 
-        setT
-    }
-
-    function myFadeOut2 (domNode, Duration, callback) {
-        setTimeout(callback, Duration);
-        domNode.style.opacity = 1;
-        var newHandle = setInterval(function() {domNode.style.opacity-=1/Duration}, Duration);
-
-        while(domNode.style.opacity > 0.1) {
-
-        }
-
+  myFadeOut: function (domNode, Duration, callback) {
+    // setTimeout(callback, Duration);
+    domNode.style.opacity = 1;
+    var newHandle = setInterval(function() {
+      console.log('!set!');
+      domNode.style.opacity -= 50/Duration;
+      if (domNode.style.opacity < 100/Duration) {
+        domNode.style.opacity = 0;
         clearInterval(newHandle);
+        console.log('!cleared!');
+        callback();
+      }
+    }, Duration/50);
 
-        
+  }
 
-    }
-</script>
+
+  }
+  </script>
+  <script type="text/javascript" src="spec/CalculatorSpec.js"></script>
 </body>
 </html>

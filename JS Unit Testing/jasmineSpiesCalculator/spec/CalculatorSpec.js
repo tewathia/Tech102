@@ -4,9 +4,16 @@ describe("Calculator", function () {
   var calcObj;
   beforeEach(function() {
     calcObj = {
-      calculate: function(){}
+      calculate: function(){
+        alert('!alert!');
+      },
+      asyncFn: function() {
+        alert('!done!');
+        console.log('!asyncFn called!');
+      }
     };
     spyOn(calcObj, 'calculate');
+    spyOn(calcObj, 'asyncFn');
 
   // cal.setBar(123);
   // cal.setBar(456, 'another param');
@@ -85,15 +92,64 @@ describe("Calculator", function () {
   it("should trigger when calculated with salary as argument (with spies)", function() {
 
         // Arrange
-    var calc = Calculator
-      , newBasic = 31999;
+        var calc = Calculator
+        , newBasic = 31999;
 
         // Act 
-    calc.subscribeSalaryChange(calcObj.calculate);
-    calc.basic(newBasic);
+        calc.subscribeSalaryChange(calcObj.calculate);
+        calc.basic(newBasic);
 
         // Assert
-      expect(calcObj.calculate).toHaveBeenCalledWith(calc.salary());
+        expect(calcObj.calculate).toHaveBeenCalledWith(calc.salary());
 
-  });
+      });
+
+  it("asynchronous test (with wait)", function() {
+
+        // Arrange
+        var asut = aSyncUT
+        , duration = 2000
+        , tBH = document.getElementById('toBeHidden');
+
+
+        // Act 
+        runs(function(){
+          asut.myFadeOut(tBH, duration, calcObj.asyncFn);  
+        });
+        
+        waitsFor(function(){
+          return tBH.style.opacity == 0
+        },"some message by the user", duration+100);
+        // Assert
+        runs(function(){
+          expect(calcObj.asyncFn).toHaveBeenCalled();
+          
+        });
+
+      });
+
+  it("asynchronous test (with createSpy)", function() {
+
+        // Arrange
+        var asut = aSyncUT
+        , duration = 2000
+        , tBH = document.getElementById('toBeHidden')
+        , callbackSpy = jasmine.createSpy("myFadeOutCallback");
+
+
+        // Act 
+        // runs(function(){
+          asut.myFadeOut(tBH, duration, callbackSpy);  
+        // });
+        
+        waitsFor(function(){
+          return tBH.style.opacity == 0
+        },"some message by the user", duration+100);
+        // Assert
+        runs(function(){
+          expect(callbackSpy).toHaveBeenCalled();
+          
+        });
+
+      });
 });
